@@ -1,0 +1,182 @@
+//=========================================================
+//
+// ゲーム画面処理 [game.cpp]
+// Author = 阿部翔大郎
+//
+//=========================================================
+#include "game.h"
+#include "object3D.h"
+#include "objectX.h"
+#include "pause.h"
+#include "input.h"
+#include "renderer.h"
+#include "fade.h"
+#include "sound.h"
+#include "camera.h"
+
+//===============================================
+// 静的メンバ変数
+//===============================================
+CObject3D *CGame::m_pObject3D = NULL;					// オブジェクト3Dクラスのポインタ
+CPause *CGame::m_pPause = NULL;							// ポーズクラスのポインタ
+
+bool CGame::m_bPause = false;				// ポーズ状態
+bool CGame::m_bStateReady = false;			// GAMSESTATE_READYかどうか
+
+//===============================================
+// コンストラクタ
+//===============================================
+CGame::CGame() : CScene()
+{
+	// 値のクリア
+	m_state = STATE_NONE;
+	m_nCounterState = 0;
+}
+
+//===============================================
+// デストラクタ
+//===============================================
+CGame::~CGame()
+{
+	
+}
+
+//===============================================
+// 初期化処理
+//===============================================
+HRESULT CGame::Init(HWND hWnd)
+{
+	m_bPause = false;
+	m_bStateReady = true;		// 待機状態にする
+
+	// カメラの初期化処理
+	CManager::GetCamera()->Init();
+
+	// ポーズの生成
+	m_pPause = CPause::Create(6);
+
+	// 通常状態に設定
+	m_state = STATE_NORMAL;
+	m_nCounterState = 0;
+
+	// サウンドの再生
+	CManager::GetSound()->Play(CSound::LABEL_BGM_GAME);
+
+	return S_OK;
+}
+
+//===============================================
+// 終了処理
+//===============================================
+void CGame::Uninit(void)
+{
+	// ポーズの終了処理
+	m_pPause->Uninit();
+	delete m_pPause;
+	m_pPause = NULL;
+
+	// 全てのオブジェクトの破棄
+	CObject::ReleaseAll();
+}
+
+//===============================================
+// 更新処理
+//===============================================
+void CGame::Update(void)
+{
+	if (CManager::GetKeyboardInput()->GetTrigger(DIK_P) == true
+		|| CManager::GetInputGamePad()->GetTrigger(CInputGamePad::BUTTON_START, 0) == true)
+	{// ポーズ入力
+		m_bPause = m_bPause ? false : true;		// ポーズ状態切り替え
+
+		if (m_bPause == true)
+		{
+			// サウンドの再生
+			CManager::GetSound()->Play(CSound::LABEL_SE_PAUSE);
+		}
+		else
+		{
+			// サウンドの再生
+			CManager::GetSound()->Play(CSound::LABEL_SE_PAUSE_CANCEL);
+		}
+	}
+
+//#if _DEBUG
+	if (CManager::GetKeyboardInput()->GetTrigger(DIK_BACKSPACE) == true
+		|| CManager::GetInputGamePad()->GetTrigger(CInputGamePad::BUTTON_BACK, 0) == true)
+	{// BackSpace
+		CRenderer::GetFade()->Set(CScene::MODE_RESULT);		// リザルト画面へ移動
+	}
+//#endif
+
+	if (m_bStateReady == false)
+	{// 待機状態じゃない
+		if (m_bPause == false)
+		{// ポーズ状態じゃない
+
+		}
+	}
+	else if (m_bStateReady == true)
+	{// 待機状態のフラグが立っている
+		if (m_state == STATE_NORMAL)
+		{
+			// 待機状態へ切り替える
+			m_state = STATE_READY;
+			m_nCounterState = TIME_STATEREADY;
+		}
+	}
+
+	if (m_bPause == true)
+	{// ポーズ状態
+		// ポーズの更新処理
+		m_pPause->Update();
+	}
+
+	switch (m_state)
+	{
+	case STATE_NORMAL:  // 通常状態
+		m_nCounterState--;
+		break;
+
+	case STATE_READY:	// 開始待機状態
+		if (m_bPause == false)
+		{// ポーズ状態じゃない
+			m_nCounterState--;
+
+			if (m_nCounterState <= 0)
+			{
+				m_state = STATE_NORMAL;				// 通常状態に設定
+				m_bStateReady = false;
+			}
+		}
+		break;
+
+	case STATE_END:     // 終了状態
+		if (m_bPause == false)
+		{// ポーズ状態じゃない
+			m_nCounterState--;
+
+			if (m_nCounterState <= 0)
+			{
+				m_state = STATE_NONE;  // 何もしていない状態に設定
+			}
+		}
+		break;
+	}
+}
+
+//===============================================
+// 描画処理
+//===============================================
+void CGame::Draw(void)
+{
+	
+}
+
+//===============================================
+// ポーズ状態の設定
+//===============================================
+void CGame::SetEnablePause(const bool bPause)
+{
+	m_bPause = bPause;
+}
