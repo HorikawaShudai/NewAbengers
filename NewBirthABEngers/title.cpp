@@ -10,7 +10,6 @@
 #include "fade.h"
 #include "sound.h"
 #include "manager.h"
-#include "camera.h"
 
 //===============================================
 // マクロ定義
@@ -44,9 +43,6 @@ CTitle::~CTitle()
 //===============================================
 HRESULT CTitle::Init(HWND hWnd)
 {
-	// カメラの初期化処理
-	CManager::GetCamera()->Init();
-
 	//// 背景の生成
 	//m_pBg = CBg::Create(CBg::TYPE_TITLE, 6);
 
