@@ -77,7 +77,7 @@ CBall *CBall::Create(int nPriority)
 HRESULT CBall::Init(void)
 {
 	// テクスチャの設定
-	m_nIdxTexture = CManager::GetTexture()->Regist("");
+	m_nIdxTexture = CManager::GetTexture()->Regist("data\\TEXTURE\\ball.png");
 
 	// オブジェクト2Dの初期化処理
 	CObject2D::Init(D3DXVECTOR3(200.0f, 400.0f, 0.0f));

@@ -141,10 +141,10 @@ HRESULT CObject2D::Init(D3DXVECTOR3 pos)
 	// テクスチャ座標の設定
 	if (GetType() == TYPE_PLAYER)
 	{// 爆発の場合
-		pVtx[0].tex = D3DXVECTOR2(0.0f + 0.3f * 0.0f, 0.0f);
-		pVtx[1].tex = D3DXVECTOR2(0.3f + 0.3f * 0.0f, 0.0f);
-		pVtx[2].tex = D3DXVECTOR2(0.0f + 0.3f * 0.0f, 0.5f);
-		pVtx[3].tex = D3DXVECTOR2(0.3f + 0.3f * 0.0f, 0.5f);
+		pVtx[0].tex = D3DXVECTOR2(0.0f + 0.25f * 0.0f, 0.0f);
+		pVtx[1].tex = D3DXVECTOR2(0.25f + 0.25f * 0.0f, 0.0f);
+		pVtx[2].tex = D3DXVECTOR2(0.0f + 0.25f * 0.0f, 0.5f);
+		pVtx[3].tex = D3DXVECTOR2(0.25f + 0.25f * 0.0f, 0.5f);
 	}
 	else
 	{// その他

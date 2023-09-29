@@ -74,10 +74,10 @@ CBlock *CBlock::Create(int nPriority)
 HRESULT CBlock::Init(void)
 {
 	// テクスチャの設定
-	m_nIdxTexture = CManager::GetTexture()->Regist("");
+	m_nIdxTexture = CManager::GetTexture()->Regist("data\\TEXTURE\\Block01.png");
 
 	// オブジェクト2Dの初期化処理
-	CObject2D::Init(D3DXVECTOR3(200.0f, 400.0f, 0.0f));
+	CObject2D::Init(D3DXVECTOR3(1600.0f, 400.0f, 0.0f));
 
 	return S_OK;
 }
@@ -97,7 +97,7 @@ void CBlock::Uninit(void)
 void CBlock::Update(void)
 {
 	// 位置を更新
-	CObject2D::SetPos(D3DXVECTOR3(m_pos.x += 0.01f, m_pos.y, 0.0f));
+	CObject2D::SetPos(D3DXVECTOR3(m_pos.x - 1.5f, m_pos.y, 0.0f));
 
 	if (CObject2D::GetPos().x <= -BLOCK_SIZEX)
 	{

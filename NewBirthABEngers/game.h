@@ -25,6 +25,7 @@ class CBall;
 class CBg;
 class CGround;
 class CTimer;
+class CBlock;
 
 //===============================================
 // ゲーム画面クラス
@@ -54,6 +55,7 @@ public:		// 誰でもアクセス可能 [アクセス指定子]
 	static CPause *GetPause() { return m_pPause; }
 	static CPlayer *GetPlayer() { return m_pPlayer; }
 	static CBall *GetBall() { return m_pBall; }
+	static CBlock *GetBlock() { return m_pBlock; }
 
 	static void SetEnablePause(const bool bPause);
 	static bool GetPauseState(void) { return m_bPause; }
@@ -69,11 +71,13 @@ private:	// 自分のみアクセス可能 [アクセス指定子]
 	static CBg *m_pBg;								// 背景
 	static CGround *m_pGround;						// 地面
 	static CTimer *m_pTimer;						// 時間
+	static CBlock *m_pBlock;						// 障害物
 
 	static bool m_bStateReady;		// GAMSESTATE_READYかどうか
 	static bool m_bPause;			// 現在のポーズの状態
 	STATE m_state;					// ゲームの状態
 	int m_nCounterState;			// 状態管理カウンター
+	int m_nTimeCounter;				// 障害物生成用タイムカウンタ
 };
 
 #endif
