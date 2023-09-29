@@ -32,6 +32,7 @@ const char *CBg::m_apTextureData[TEX_MAX] =
 	{ "data\\TEXTURE\\GameBg000.png" },		// ゲーム
 	{ "data\\TEXTURE\\TitleBg000.png" },	// タイトル
 	{ "data\\TEXTURE\\ResultBg000.png" },	// リザルト
+	{ "data\\TEXTURE\\TutorialBg000.png" },	// チュートリアル
 };
 
 //===============================================

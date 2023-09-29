@@ -27,9 +27,10 @@ public:		// 誰でもアクセス可能 [アクセス指定子]
 	// 背景のテクスチャ
 	enum TEX
 	{
-		TEX_GAME = 0,	// 移動操作できない
-		TEX_TITLE,
-		TEX_RESULT,
+		TEX_GAME = 0,	// ゲーム
+		TEX_TITLE,		// タイトル
+		TEX_RESULT,		// リザルト
+		TEX_TUTORIAL,	// チュートリアル
 		TEX_MAX
 	};
 
