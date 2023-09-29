@@ -96,27 +96,14 @@ void CBlock::Uninit(void)
 //===============================================
 void CBlock::Update(void)
 {
-	// 蹴る強さ変更
-	if (CManager::GetKeyboardInput()->GetPress(DIK_SPACE) == true)
-	{
-		m_fPower -= LIFTING_POWER;
-
-		if (m_fPower <= MAX_POWER)
-		{// 強さの上限を超えたら戻す
-			m_fPower = MAX_POWER;
-		}
-	}
-
-	if (CManager::GetKeyboardInput()->GetPress(DIK_SPACE) == false)
-	{
-		m_fPower = MOVE_LIFTING;
-	}
-
 	// 位置を更新
-	CObject2D::SetPos(D3DXVECTOR3(m_pos.x, m_pos.y += m_move.y, 0.0f));
+	CObject2D::SetPos(D3DXVECTOR3(m_pos.x += 0.01f, m_pos.y, 0.0f));
 
-	// 重力処理
-	m_move.y += MOVE_GRAVITY;
+	if (CObject2D::GetPos().x <= -BLOCK_SIZEX)
+	{
+		// 終了処理
+		Uninit();
+	}
 }
 
 //===============================================

@@ -24,6 +24,7 @@ CBall::CBall() : CObject2D(5)
 	// 値をクリア
 	m_fPower = 0.0f;
 	m_bLifting = false;
+	m_bDeath = false;
 }
 
 //===============================================
@@ -34,6 +35,7 @@ CBall::CBall(int nPriority) : CObject2D(nPriority)
 	// 値をクリア
 	m_fPower = 0.0f;
 	m_bLifting = false;
+	m_bDeath = false;
 }
 
 //===============================================
@@ -116,6 +118,10 @@ void CBall::Update(void)
 			m_move.y = m_fPower;
 			m_bLifting = true;
 		}
+	}
+	else if (CollisionObj(TYPE_BLOCK) == true)
+	{// 障害物に接触
+		m_bDeath = true;	// 死亡フラグ
 	}
 
 	if (CManager::GetKeyboardInput()->GetPress(DIK_SPACE) == false)
