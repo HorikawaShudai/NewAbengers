@@ -1,23 +1,2 @@
-﻿  ball.cpp
-  bg.cpp
-  block.cpp
-  game.cpp
-  ground.cpp
-  manager.cpp
-  number.cpp
-  object.cpp
-  object2D.cpp
-  pause.cpp
-  player.cpp
-  renderer.cpp
-  result.cpp
-  timer.cpp
-  title.cpp
-  tutorial.cpp
-  コード生成しています。
-  39 of 328 functions (11.9%) were compiled, the rest were copied from previous compilation.
-    2 functions were new in current compilation
-    48 functions had inline decision re-evaluated but remain unchanged
-  コード生成が終了しました。
-  NewBirthABEngers.vcxproj -> C:\Users\student\Desktop\NewBirthABEngers\NewAbengers\NewBirthABEngers\NewBirthABEngers.exe
-  NewBirthABEngers.vcxproj -> C:\Users\student\Desktop\NewBirthABEngers\NewAbengers\NewBirthABEngers\NewBirthABEngers.pdb (Full PDB)
+﻿  NewBirthABEngers.vcxproj -> C:\Users\student\Documents\作品\HGS_NEW_AVENGERS\NewAbengers\NewBirthABEngers\NewBirthABEngers.exe
+  NewBirthABEngers.vcxproj -> C:\Users\student\Documents\作品\HGS_NEW_AVENGERS\NewAbengers\NewBirthABEngers\NewBirthABEngers.pdb (Full PDB)
