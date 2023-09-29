@@ -39,6 +39,9 @@ CBg::CBg() : CObject2D(5)
 	// 値のクリア
 	m_nTypeTex = 0;
 
+	m_size = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
+	m_color = D3DXCOLOR(0.0f, 0.0f, 0.0f, 0.0f);
+
 	m_texPos = D3DXVECTOR2(0.0f, 0.0f);
 	m_texMove = D3DXVECTOR2(0.0f, 0.0f);
 }
@@ -50,6 +53,9 @@ CBg::CBg(int nPriority) : CObject2D(nPriority)
 {
 	// 値のクリア
 	m_nTypeTex = 0;
+
+	m_size = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
+	m_color = D3DXCOLOR(0.0f, 0.0f, 0.0f, 0.0f);
 
 	m_texPos = D3DXVECTOR2(0.0f, 0.0f);
 	m_texMove = D3DXVECTOR2(0.0f, 0.0f);
