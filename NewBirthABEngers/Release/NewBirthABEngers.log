@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿  precompile.cpp
   ball.cpp
   bg.cpp
@@ -33,6 +34,16 @@
   xfile.cpp
   コード生成しています。
   368 of 372 functions (98.9%) were compiled, the rest were copied from previous compilation.
+=======
+﻿  ball.cpp
+  game.cpp
+c:\users\student\desktop\newbirthabengers\newabengers\newbirthabengers\block.h(18): warning C4005: 'MOVE_GRAVITY': マクロが再定義されました。
+  c:\users\student\desktop\newbirthabengers\newabengers\newbirthabengers\ball.h(18): note: 'MOVE_GRAVITY' の以前の定義を確認してください
+c:\users\student\desktop\newbirthabengers\newabengers\newbirthabengers\block.h(21): warning C4005: 'MAX_POWER': マクロが再定義されました。
+  c:\users\student\desktop\newbirthabengers\newabengers\newbirthabengers\ball.h(21): note: 'MAX_POWER' の以前の定義を確認してください
+  コード生成しています。
+  1 of 372 functions ( 0.3%) were compiled, the rest were copied from previous compilation.
+>>>>>>> 0c7db52965382f59754bf0b5ebc98dcdf8aa1324
     0 functions were new in current compilation
     0 functions had inline decision re-evaluated but remain unchanged
   コード生成が終了しました。
