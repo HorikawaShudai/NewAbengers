@@ -138,6 +138,14 @@ HRESULT CObject2D::Init(D3DXVECTOR3 pos)
 		pVtx[2].tex = D3DXVECTOR2(0.0f + 0.125f * 0.0f, 1.0f);
 		pVtx[3].tex = D3DXVECTOR2(0.125f + 0.125f * 0.0f, 1.0f);
 	}
+	// テクスチャ座標の設定
+	if (GetType() == TYPE_PLAYER)
+	{// 爆発の場合
+		pVtx[0].tex = D3DXVECTOR2(0.0f + 0.3f * 0.0f, 0.0f);
+		pVtx[1].tex = D3DXVECTOR2(0.3f + 0.3f * 0.0f, 0.0f);
+		pVtx[2].tex = D3DXVECTOR2(0.0f + 0.3f * 0.0f, 0.5f);
+		pVtx[3].tex = D3DXVECTOR2(0.3f + 0.3f * 0.0f, 0.5f);
+	}
 	else
 	{// その他
 		pVtx[0].tex = D3DXVECTOR2(0.0f, 0.0f);
@@ -288,7 +296,7 @@ void CObject2D::UpdateAnim(int nPatternX, int nPatternY, int nSpeed)
 	// 頂点バッファをロックし頂点情報へのポインタを取得
 	m_pVtxBuff->Lock(0, 0, (void**)&pVtx, 0);
 
-	//頂点座標の設定
+	////頂点座標の設定
 	//pVtx[0].tex = D3DXVECTOR2(0.0f + 1.0f / nPatternX * m_nPatternAnim, 0.0f);
 	//pVtx[1].tex = D3DXVECTOR2(0.2f + 1.0f / nPatternX * m_nPatternAnim, 0.0f);
 	//pVtx[2].tex = D3DXVECTOR2(0.0f + 1.0f / nPatternX * m_nPatternAnim, 0.5f);
