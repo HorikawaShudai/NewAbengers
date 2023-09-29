@@ -22,7 +22,10 @@ int CPlayer::m_nIdxTexture = NULL;		// 使用するテクスチャの番号
 //===============================================
 CPlayer::CPlayer() : CObject2D(5)
 {
-	PlayerState = PLAYERSTATE_NONE;		//プレイヤーをクリア
+	// 値をクリア
+	m_state = STATE_NONE;
+	m_nCounterAnim = 0;
+	m_nPatternAnim = 0;
 }
 
 //===============================================
@@ -30,7 +33,10 @@ CPlayer::CPlayer() : CObject2D(5)
 //===============================================
 CPlayer::CPlayer(int nPriority) : CObject2D(nPriority)
 {
-
+	// 値をクリア
+	m_state = STATE_NONE;
+	m_nCounterAnim = 0;
+	m_nPatternAnim = 0;
 }
 
 //===============================================
@@ -71,8 +77,8 @@ CPlayer *CPlayer::Create(int nPriority)
 //===============================================
 HRESULT CPlayer::Init(void)
 {
-	//プレイヤー状態を初期化
-	PlayerState = PLAYERSTATE_NONE;
+	// 状態を初期化
+	m_state = STATE_NONE;
 
 	// テクスチャの設定
 	m_nIdxTexture = CManager::GetTexture()->Regist("data\\TEXTURE\\Player.png");
@@ -88,6 +94,7 @@ HRESULT CPlayer::Init(void)
 //===============================================
 void CPlayer::Uninit(void)
 {
+	// オブジェクト2Dの終了処理
 	CObject2D::Uninit();
 }
 
@@ -96,7 +103,41 @@ void CPlayer::Uninit(void)
 //===============================================
 void CPlayer::Update(void)
 {
-	
+	if (CManager::GetKeyboardInput()->GetRelease(DIK_SPACE) == true)
+	{
+		m_state = STATE_KICK;	// 状態を変更
+	}
+
+	if (m_nPatternAnim <= 4)
+	{// 総パターン数を超えてない
+		if ((m_nCounterAnim % 10) == 0)
+		{// カウンターが設定した速さの数値に達した
+			m_nCounterAnim = 0;		// カウンターを初期値に戻す
+
+			if (m_state == STATE_NONE)
+			{
+				CObject2D::UpdateAnim(m_nPatternAnim, 0);
+			}
+			else if (m_state == STATE_KICK)
+			{
+				CObject2D::UpdateAnim(m_nPatternAnim, 1);
+			}
+
+			m_nPatternAnim++;     // パターンNo.を更新する
+		}
+
+		m_nCounterAnim++;   // カウンターを加算
+	}
+	else if(m_nPatternAnim > 4)
+	{
+		if (m_state == STATE_KICK)
+		{
+			m_state = STATE_NONE;		// 走っている状態に戻す
+		}
+
+		m_nPatternAnim = 0;		// パターン数を戻す
+		m_nCounterAnim = 0;
+	}
 }
 
 //===============================================
@@ -104,5 +145,6 @@ void CPlayer::Update(void)
 //===============================================
 void CPlayer::Draw(void)
 {
+	// オブジェクト2Dの描画処理
 	CObject2D::Draw();
 }
