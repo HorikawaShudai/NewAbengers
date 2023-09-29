@@ -119,7 +119,7 @@ void CBall::Update(void)
 			m_bLifting = true;
 		}
 	}
-	else if (CollisionObj(TYPE_BLOCK) == true)
+	else if (CollisionObj(TYPE_BLOCK) == true || m_pos.y >= 600.0f)
 	{// 障害物に接触
 		m_bDeath = true;	// 死亡フラグ
 	}
@@ -188,7 +188,7 @@ bool CBall::CollisionObj(const CObject::TYPE type)
 							if (posBall.x >= posObj.x - BALL_SIZEX - sizeObj.x
 								&& posBall.x <= posObj.x + BALL_SIZEX + sizeObj.x
 								&& posBall.y <= posObj.y + BALL_SIZEY + sizeObj.y
-								&& posBall.y >= posObj.y - BALL_SIZEY)
+								&& posBall.y >= posObj.y - BALL_SIZEY - sizeObj.y * 0.5f)
 							{//	現在の位置がオブジェクトの範囲内
 								return true;
 							}
