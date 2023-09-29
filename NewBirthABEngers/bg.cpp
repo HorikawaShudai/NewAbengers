@@ -71,24 +71,24 @@ CBg::~CBg()
 //===============================================
 CBg *CBg::Create(int nTex, int nPriority)
 {
-	CBg *pUi;
+	CBg *pBg;
 
 	// 背景の生成
-	pUi = new CBg(nPriority);
+	pBg = new CBg(nPriority);
 
 	// 種類の設定
-	pUi->SetType(TYPE_BULLET);
+	pBg->SetType(TYPE_BULLET);
 
 	// サイズの設定
-	pUi->SetSize(SIZE_X, SIZE_Y);
+	pBg->SetSize(SIZE_X, SIZE_Y);
 
 	// 初期化処理
-	pUi->Init(D3DXVECTOR3(650.0f, 600.0f, 0.0f), nTex, nPriority);
+	pBg->Init(D3DXVECTOR3(650.0f, 600.0f, 0.0f), nTex, nPriority);
 
 	// 設定処理
-	pUi->Set(nTex);
+	pBg->Set(nTex);
 
-	return pUi;
+	return pBg;
 }
 
 //===============================================
@@ -159,6 +159,9 @@ void CBg::SetData(D3DXVECTOR3 pos, D3DXVECTOR3 size, D3DXCOLOR color, D3DXVECTOR
 	m_color = color;
 
 	m_texMove = texMove;
+
+	// 頂点情報の設定
+	SetVtx();
 }
 
 //-------------------------------------

@@ -9,6 +9,7 @@
 #include "renderer.h"
 #include "fade.h"
 #include "manager.h"
+#include "bg.h"
 
 //===============================================
 // マクロ定義
@@ -45,8 +46,15 @@ CResult::~CResult()
 //===============================================
 HRESULT CResult::Init(HWND hWnd)
 {
-	//// 背景の生成
-	//m_pBg = CBg::Create(CBg::TYPE_RESULT);
+	// 背景の生成
+	m_pBg = CBg::Create(CBg::TEX_RESULT, 1);
+
+	// 背景スクロール
+	m_pBg->SetData(
+		D3DXVECTOR3(SCREEN_WIDTH * 0.5f, SCREEN_HEIGHT * 0.5f, 0.0f),
+		D3DXVECTOR3(SCREEN_WIDTH * 0.5f, SCREEN_HEIGHT * 0.5f, 0.0f),
+		D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f),
+		D3DXVECTOR2(0.0f, 0.0f));
 
 	return S_OK;
 }
@@ -56,8 +64,8 @@ HRESULT CResult::Init(HWND hWnd)
 //===============================================
 void CResult::Uninit(void)
 {
-	//// 全てのオブジェクトの破棄
-	//CObject::ReleaseAll();
+	// 全てのオブジェクトの破棄
+	CObject::ReleaseAll();
 }
 
 //===============================================
