@@ -1,6 +1,2 @@
 #TargetFrameworkVersion=v4.0:PlatformToolSet=v140:EnableManagedIncrementalBuild=false:VCToolArchitecture=Native32Bit:WindowsTargetPlatformVersion=8.1
-<<<<<<< HEAD
 Debug|Win32|C:\Users\student\Desktop\02_2023_Hackathon_autumn\NewAbengers\NewBirthABEngers\|
-=======
-Debug|Win32|C:\Users\student\Documents\作品\HGS_NEW_AVENGERS\NewAbengers\NewBirthABEngers\|
->>>>>>> b4f267e9ae51984d8cbe50700bd7a44fad5a0e50

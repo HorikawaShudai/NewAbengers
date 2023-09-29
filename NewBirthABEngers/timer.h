@@ -28,7 +28,7 @@
 // 前方宣言
 //===============================================
 
-class CNumber;
+class CNumberSakai;
 class CObject2D;
 
 //-======================================
@@ -83,8 +83,8 @@ private:
 
 	int m_nCntTime;			// 時間のカウント
 	
-	CNumber *m_apSecondNumber[SECOND_DIGITS];	// 秒の数字のポインタ
-	CNumber *m_apCommaNumber[COMMA_DIGITS];		// コンマ秒の数字のポインタ
+	CNumberSakai *m_apSecondNumber[SECOND_DIGITS];	// 秒の数字のポインタ
+	CNumberSakai *m_apCommaNumber[COMMA_DIGITS];		// コンマ秒の数字のポインタ
 
 };
 

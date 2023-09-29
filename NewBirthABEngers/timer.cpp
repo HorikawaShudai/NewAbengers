@@ -16,7 +16,7 @@
 #include "renderer.h"
 
 #include "texture.h"
-#include "number.h"
+#include "number_sakai.h"
 
 //=======================================
 //=	É}ÉNÉçíËã`
@@ -87,7 +87,7 @@ HRESULT CTimer::Init(void)
 	{
 		if (m_apSecondNumber[nCount] == NULL)
 		{
-			m_apSecondNumber[nCount] = CNumber::Create(CNumber::TEX_GOLD_000, 7);
+			m_apSecondNumber[nCount] = CNumberSakai::Create(CNumberSakai::TEX_GOLD_000, 7);
 
 			if (m_apSecondNumber[nCount] == NULL)
 			{
@@ -104,7 +104,7 @@ HRESULT CTimer::Init(void)
 	{
 		if (m_apCommaNumber[nCount] == NULL)
 		{
-			m_apCommaNumber[nCount] = CNumber::Create(CNumber::TEX_GOLD_000, 7);
+			m_apCommaNumber[nCount] = CNumberSakai::Create(CNumberSakai::TEX_GOLD_000, 7);
 
 			if (m_apCommaNumber[nCount] == NULL)
 			{

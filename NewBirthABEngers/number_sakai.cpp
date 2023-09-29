@@ -1,12 +1,12 @@
 
 //=========================================================
 //
-// 背景処理 [bg.cpp]
+// 酒井の数字処理 [number_sakai.cpp]
 // Author = 酒井南勝
 //
 //=========================================================
 
-#include "number.h"
+#include "number_sakai.h"
 
 #include "manager.h"
 #include "renderer.h"
@@ -20,12 +20,12 @@
 // 静的メンバ変数
 //===============================================
 
-int CNumber::m_aIdxTexture[TEX_MAX] = {};				// 使用するテクスチャの番号
+int CNumberSakai::m_aIdxTexture[TEX_MAX] = {};				// 使用するテクスチャの番号
 
 //===============================================
 // テクスチャファイル名
 //===============================================
-const char *CNumber::m_apTextureData[TEX_MAX] =
+const char *CNumberSakai::m_apTextureData[TEX_MAX] =
 {
 	{ "data\\TEXTURE\\number_000.png" },		// ゲーム
 };
@@ -33,7 +33,7 @@ const char *CNumber::m_apTextureData[TEX_MAX] =
 //===============================================
 // コンストラクタ
 //===============================================
-CNumber::CNumber() : CObject2D(5)
+CNumberSakai::CNumberSakai() : CObject2D(5)
 {
 	// 値のクリア
 	m_nTypeTex = 0;
@@ -47,7 +47,7 @@ CNumber::CNumber() : CObject2D(5)
 //===============================================
 // コンストラクタ（オーバーロード）
 //===============================================
-CNumber::CNumber(int nPriority) : CObject2D(nPriority)
+CNumberSakai::CNumberSakai(int nPriority) : CObject2D(nPriority)
 {
 	// 値のクリア
 	m_nTypeTex = 0;
@@ -61,7 +61,7 @@ CNumber::CNumber(int nPriority) : CObject2D(nPriority)
 //===============================================
 // デストラクタ
 //===============================================
-CNumber::~CNumber()
+CNumberSakai::~CNumberSakai()
 {
 
 }
@@ -69,12 +69,12 @@ CNumber::~CNumber()
 //===============================================
 // 生成処理
 //===============================================
-CNumber *CNumber::Create(int nTex, int nPriority)
+CNumberSakai *CNumberSakai::Create(int nTex, int nPriority)
 {
-	CNumber *pBg;
+	CNumberSakai *pBg;
 
 	// 背景の生成
-	pBg = new CNumber(nPriority);
+	pBg = new CNumberSakai(nPriority);
 
 	// 種類の設定
 	pBg->SetType(TYPE_BULLET);
@@ -94,7 +94,7 @@ CNumber *CNumber::Create(int nTex, int nPriority)
 //===============================================
 // 初期化処理
 //===============================================
-HRESULT CNumber::Init(D3DXVECTOR3 pos, int nTex, int nPriority)
+HRESULT CNumberSakai::Init(D3DXVECTOR3 pos, int nTex, int nPriority)
 {
 	// オブジェクト2Dの初期化処理
 	CObject2D::Init(pos);
@@ -105,7 +105,7 @@ HRESULT CNumber::Init(D3DXVECTOR3 pos, int nTex, int nPriority)
 //===============================================
 // 終了処理
 //===============================================
-void CNumber::Uninit(void)
+void CNumberSakai::Uninit(void)
 {
 	// オブジェクト2Dの終了処理
 	CObject2D::Uninit();
@@ -114,7 +114,7 @@ void CNumber::Uninit(void)
 //===============================================
 // 更新処理
 //===============================================
-void CNumber::Update(void)
+void CNumberSakai::Update(void)
 {
 	// 頂点情報の設定
 	SetVtx();
@@ -123,7 +123,7 @@ void CNumber::Update(void)
 //===============================================
 // 描画処理
 //===============================================
-void CNumber::Draw(void)
+void CNumberSakai::Draw(void)
 {
 	// オブジェクト2Dの描画処理
 	CObject2D::Draw();
@@ -132,7 +132,7 @@ void CNumber::Draw(void)
 //===============================================
 // 設定処理
 //===============================================
-void CNumber::Set(const int nType)
+void CNumberSakai::Set(const int nType)
 {
 	m_nTypeTex = nType;
 
@@ -146,7 +146,7 @@ void CNumber::Set(const int nType)
 //===============================================
 // 値の設定処理
 //===============================================
-void CNumber::SetData(D3DXVECTOR3 pos, D3DXVECTOR3 size, D3DXCOLOR color)
+void CNumberSakai::SetData(D3DXVECTOR3 pos, D3DXVECTOR3 size, D3DXCOLOR color)
 {
 	m_pos = pos;
 	m_size = size;
@@ -159,7 +159,7 @@ void CNumber::SetData(D3DXVECTOR3 pos, D3DXVECTOR3 size, D3DXCOLOR color)
 //-------------------------------------
 //- 数字の値を設定処理
 //-------------------------------------
-void CNumber::SetValue(int nValue)
+void CNumberSakai::SetValue(int nValue)
 {
 	m_nValue = nValue;
 }
@@ -167,7 +167,7 @@ void CNumber::SetValue(int nValue)
 //-------------------------------------
 //- 数字の頂点情報設定
 //-------------------------------------
-void CNumber::SetVtx(void)
+void CNumberSakai::SetVtx(void)
 {
 	// 頂点バッファをポインタを宣言
 	LPDIRECT3DVERTEXBUFFER9 vtxBuff = GetVtxBuff();

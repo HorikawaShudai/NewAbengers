@@ -1,12 +1,12 @@
 
 //=========================================================
 //
-// 背景処理 [ground.h]
+// 酒井の数字処理 [number_sakai.h]
 // Author = 酒井南勝
 //
 //=========================================================
-#ifndef _GROUND_H_     // このマクロ定義がされてなかったら
-#define _GROUND_H_     // 2重インクルード防止のマクロ定義する
+#ifndef _NUMBER_SAKAI_H_     // このマクロ定義がされてなかったら
+#define _NUMBER_SAKAI_H_     // 2重インクルード防止のマクロ定義する
 
 #include "object2D.h"
 
@@ -17,12 +17,12 @@
 //===============================================
 // 数字クラス
 //===============================================
-class CNumber : public CObject2D
+class CNumberSakai : public CObject2D
 {
 public:		// 誰でもアクセス可能 [アクセス指定子]
-	CNumber();					// デフォルトコンストラクタ
-	CNumber(int nPriority = 5);	// オーバーロードされたコンストラクタ
-	~CNumber();					// デストラクタ
+	CNumberSakai();					// デフォルトコンストラクタ
+	CNumberSakai(int nPriority = 5);	// オーバーロードされたコンストラクタ
+	~CNumberSakai();					// デストラクタ
 
 	// 数字のテクスチャ
 	enum TEX
@@ -31,7 +31,7 @@ public:		// 誰でもアクセス可能 [アクセス指定子]
 		TEX_MAX
 	};
 
-	static CNumber *Create(int nTex, int nPriority = 3);
+	static CNumberSakai *Create(int nTex, int nPriority = 3);
 
 	HRESULT Init(D3DXVECTOR3 pos, int nTex, int nPriority);
 	void Uninit(void);
