@@ -22,7 +22,7 @@ int CPlayer::m_nIdxTexture = NULL;		// 使用するテクスチャの番号
 //===============================================
 CPlayer::CPlayer() : CObject2D(5)
 {
-
+	PlayerState = PLAYERSTATE_NONE;		//プレイヤーをクリア
 }
 
 //===============================================
@@ -71,8 +71,11 @@ CPlayer *CPlayer::Create(int nPriority)
 //===============================================
 HRESULT CPlayer::Init(void)
 {
+	//プレイヤー状態を初期化
+	PlayerState = PLAYERSTATE_NONE;
+
 	// テクスチャの設定
-	m_nIdxTexture = CManager::GetTexture()->Regist("");
+	m_nIdxTexture = CManager::GetTexture()->Regist("data\\TEXTURE\\Player.png");
 
 	// オブジェクト2Dの初期化処理
 	CObject2D::Init(D3DXVECTOR3(150.0f, 600.0f, 0.0f));
