@@ -16,10 +16,16 @@
 =======
 ﻿  block.cpp
   コード生成しています。
+<<<<<<< HEAD
+  1 of 301 functions ( 0.3%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    7 functions had inline decision re-evaluated but remain unchanged
+=======
   5 of 301 functions ( 1.7%) were compiled, the rest were copied from previous compilation.
     5 functions were new in current compilation
     36 functions had inline decision re-evaluated but remain unchanged
 >>>>>>> 42d61d54832d79469dc4e19c1bab4e535762d08d
+>>>>>>> 747fc48882a149412ddcaa03e3fb28f05f549f99
   コード生成が終了しました。
   NewBirthABEngers.vcxproj -> C:\Users\student\Desktop\NewBirthABEngers\NewAbengers\NewBirthABEngers\NewBirthABEngers.exe
   NewBirthABEngers.vcxproj -> C:\Users\student\Desktop\NewBirthABEngers\NewAbengers\NewBirthABEngers\NewBirthABEngers.pdb (Full PDB)
