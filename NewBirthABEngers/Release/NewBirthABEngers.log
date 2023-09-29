@@ -2,17 +2,14 @@
   game.cpp
   manager.cpp
   object.cpp
-  object2D.cpp
   objectX.cpp
-  pause.cpp
   player.cpp
-  renderer.cpp
   title.cpp
   tutorial.cpp
   コード生成しています。
-  50 of 263 functions (19.0%) were compiled, the rest were copied from previous compilation.
+  44 of 279 functions (15.8%) were compiled, the rest were copied from previous compilation.
     18 functions were new in current compilation
-    29 functions had inline decision re-evaluated but remain unchanged
+    37 functions had inline decision re-evaluated but remain unchanged
   コード生成が終了しました。
-  NewBirthABEngers.vcxproj -> C:\Users\student\Desktop\NewBirthABEngers\NewAbengers\NewBirthABEngers\NewBirthABEngers.exe
-  NewBirthABEngers.vcxproj -> C:\Users\student\Desktop\NewBirthABEngers\NewAbengers\NewBirthABEngers\NewBirthABEngers.pdb (Full PDB)
+  NewBirthABEngers.vcxproj -> C:\Users\student\Desktop\02_2023_Hackathon_autumn\NewAbengers\NewBirthABEngers\NewBirthABEngers.exe
+  NewBirthABEngers.vcxproj -> C:\Users\student\Desktop\02_2023_Hackathon_autumn\NewAbengers\NewBirthABEngers\NewBirthABEngers.pdb (Full PDB)

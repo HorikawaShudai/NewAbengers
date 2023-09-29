@@ -42,6 +42,8 @@ public:		// 誰でもアクセス可能 [アクセス指定子]
 	void SetCol(const D3DXCOLOR col);
 	void SetNumber(const int nNumber);
 	void SetSize(const float fSizeX, const float fSizeY);
+	LPDIRECT3DVERTEXBUFFER9 GetVtxBuff(void) { return m_pVtxBuff; };
+
 	float GetSizeX(void) { return m_fSizeX; }
 	float GetSizeY(void) { return m_fSizeY; }
 	D3DXVECTOR3 GetSize(void) { return D3DXVECTOR3(m_fSizeX, m_fSizeY, 0.0f); }

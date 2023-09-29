@@ -11,6 +11,8 @@
 #include "sound.h"
 #include "manager.h"
 
+#include "bg.h"
+
 //===============================================
 // マクロ定義
 //===============================================
@@ -19,6 +21,8 @@
 //===============================================
 // 静的メンバ変数
 //===============================================
+
+CBg *CTitle::m_pBg = NULL;
 
 //===============================================
 // コンストラクタ
@@ -43,8 +47,15 @@ CTitle::~CTitle()
 //===============================================
 HRESULT CTitle::Init(HWND hWnd)
 {
-	//// 背景の生成
-	//m_pBg = CBg::Create(CBg::TYPE_TITLE, 6);
+	// 背景の生成
+	m_pBg = CBg::Create(CBg::TEX_TITLE,6);
+
+	// 背景スクロール
+	m_pBg->SetData(
+		D3DXVECTOR3(SCREEN_WIDTH * 0.5f,SCREEN_HEIGHT * 0.5f,0.0f),
+		D3DXVECTOR3(SCREEN_WIDTH * 0.5f, SCREEN_HEIGHT * 0.5f, 0.0f),
+		D3DXCOLOR(1.0f,1.0f,1.0f,1.0f),
+		D3DXVECTOR2(0.0f,0.0f));
 
 	return S_OK;
 }
@@ -54,8 +65,8 @@ HRESULT CTitle::Init(HWND hWnd)
 //===============================================
 void CTitle::Uninit(void)
 {
-	//// 全てのオブジェクトの破棄
-	//CObject::ReleaseAll();
+	// 全てのオブジェクトの破棄
+	CObject::ReleaseAll();
 }
 
 //===============================================
