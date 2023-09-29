@@ -15,10 +15,10 @@
 //===============================================
 #define BALL_SIZEX		(40)					// 幅（半分）
 #define BALL_SIZEY		(40)					// 高さ（半分）
-#define MOVE_GRAVITY	(0.75f)					// 重力
+#define MOVE_GRAVITY	(0.55f)					// 重力
 #define MOVE_LIFTING	(-20.85f)				// リフティング時の移動量
 #define LIFTING_POWER	(0.2f)					// 蹴る強さ
-#define MAX_POWER		(-29.0f)				// 最大リフティング力
+#define MAX_POWER		(-24.0f)				// 最大リフティング力
 
 //===============================================
 // ボールクラス
