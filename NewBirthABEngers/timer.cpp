@@ -12,8 +12,10 @@
 
 #include "timer.h"
 
+#include "manager.h"
 #include "renderer.h"
 
+#include "texture.h"
 #include "number.h"
 
 //=======================================
@@ -24,11 +26,21 @@
 //=	静的変数宣言
 //=======================================
 
+CObject2D *CTimer::m_apObject2D[TEX_MAX] = {};
+int CTimer::m_aIdxTexture[TEX_MAX] = {};
+const char *CTimer::m_apTextureData[TEX_MAX] = {};	// テクスチャファイル名
+
 //-------------------------------------
 //-	タイマーのコンストラクタ
 //-------------------------------------
 CTimer::CTimer()
 {
+	for (int nCount = 0; nCount < TEX_MAX; nCount++)
+	{
+		m_aPos2d[nCount] = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
+		m_aSize2d[nCount] = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
+	}
+
 	m_pos = D3DXVECTOR3(0.0f,0.0f,0.0f);
 	m_intervalValue = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
 	m_intervalDigits = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
@@ -64,7 +76,13 @@ CTimer::~CTimer()
 //-------------------------------------
 HRESULT CTimer::Init(void)
 {
-	// 値のクリア
+	// テクスチャファイル名
+	const char *m_apTextureData[TEX_MAX] =
+	{
+		{ "data\\TEXTURE\\Comma000.png" },		// 背景
+		{ "data\\TEXTURE\\Metre000.png" },		// ゲームに戻る
+	};
+
 	for (int nCount = 0; nCount < SECOND_DIGITS; nCount++)
 	{
 		if (m_apSecondNumber[nCount] == NULL)
@@ -99,6 +117,19 @@ HRESULT CTimer::Init(void)
 		}
 	}
 
+	for (int nCntObj = 0; nCntObj < TEX_MAX; nCntObj++)
+	{
+		m_apObject2D[nCntObj] = new CObject2D(7);
+
+		// テクスチャの設定
+		m_aIdxTexture[nCntObj] = CManager::GetTexture()->Regist(m_apTextureData[nCntObj]);
+
+		// テクスチャの割り当て
+		m_apObject2D[nCntObj]->BindTexture(m_aIdxTexture[nCntObj]);
+	}
+
+	m_aSize2d[TEX_COMMA] = D3DXVECTOR3(100.0f, 100.0f, 0.0f);
+	m_aSize2d[TEX_METRE] = D3DXVECTOR3(100.0f, 100.0f, 0.0f);
 
 	// 成功を返す
 	return S_OK;
@@ -187,6 +218,9 @@ void CTimer::SetData(D3DXVECTOR3 pos, D3DXVECTOR3 size, D3DXVECTOR3 intervalValu
 	m_intervalValue = intervalValue;
 	m_intervalDigits = intervalDigits;
 
+	m_aPos2d[TEX_COMMA] = D3DXVECTOR3(pos.x + 300.0f , pos.y - 50.0f , pos.z);
+	m_aPos2d[TEX_METRE] = D3DXVECTOR3(pos.x + 600.0f , pos.y - 50.0f , pos.z);
+
 	// 数字の設定処理
 	SetNumber();
 }
@@ -250,7 +284,7 @@ void CTimer::SetNumber(void)
 					m_pos.y + (m_intervalValue.y * nCount),
 					m_pos.z + (m_intervalValue.z * nCount)),
 				m_size,
-				D3DXCOLOR(1.0f, 0.0f, 0.0f, 1.0f));
+				D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
 		}
 	}
 
@@ -266,8 +300,26 @@ void CTimer::SetNumber(void)
 					m_pos.y + (m_intervalValue.y * nCount) + m_intervalDigits.y,
 					m_pos.z + (m_intervalValue.z * nCount) + m_intervalDigits.z),
 				m_size,
-				D3DXCOLOR(0.0f, 1.0f, 0.0f, 1.0f)
+				D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f)
 			);
 		}
+	}
+
+	if (m_apObject2D[TEX_COMMA] != NULL)
+	{
+		// サイズ設定処理
+		m_apObject2D[TEX_COMMA]->SetSize(m_aSize2d[TEX_COMMA].x, m_aSize2d[TEX_COMMA].y);
+
+		// オブジェクト2Dの初期化処理
+		m_apObject2D[TEX_COMMA]->Init(m_aPos2d[TEX_COMMA]);
+	}
+
+	if (m_apObject2D[TEX_METRE] != NULL)
+	{
+		// サイズ設定処理
+		m_apObject2D[TEX_METRE]->SetSize(m_aSize2d[TEX_METRE].x, m_aSize2d[TEX_METRE].y);
+
+		// オブジェクト2Dの初期化処理
+		m_apObject2D[TEX_METRE]->Init(m_aPos2d[TEX_METRE]);
 	}
 }

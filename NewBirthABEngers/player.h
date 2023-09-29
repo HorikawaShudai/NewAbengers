@@ -23,12 +23,13 @@ class CPlayer : public CObject2D
 {
 public:		//誰でもアクセス可能[アクセス指定子]
 
-	typedef enum
+	// 状態
+	enum STATE
 	{
-		PLAYERSTATE_NONE = 0,		//プレイヤー歩き状態
-		PLAYERSTATE_KICK,			//プレイヤーキック状態
-		PLAYERSTATE_MAX
-	}PLAYER_STATE;
+		STATE_NONE = 0,		//プレイヤー歩き状態
+		STATE_KICK,			//プレイヤーキック状態
+		STATE_MAX
+	};
 
 	CPlayer();						// デフォルトコンストラクタ
 	CPlayer(int nPriority = 5);		// オーバーロードされたコンストラクタ
@@ -44,7 +45,9 @@ public:		//誰でもアクセス可能[アクセス指定子]
 private:	//自分のみアクセス可能[アクセス指定子]
 	static int m_nIdxTexture;		// 使用するテクスチャの番号
 
-	PLAYER_STATE PlayerState;		//プレイヤー状態
+	STATE m_state;		// 状態
+	int m_nCounterAnim;			// アニメーションカウンター
+	int m_nPatternAnim;			// アニメーションパターンNo.
 };
 
 #endif

@@ -27,7 +27,7 @@ public:		// 誰でもアクセス可能 [アクセス指定子]
 
 	void UpdatePos(D3DXVECTOR3 pos, float fSizeX, float fSizeY);
 	void UpdatePosAngle(D3DXVECTOR3 pos);
-	void UpdateAnim(int nPatternX, int nPatternY, int nSpeed);
+	void UpdateAnim(int nPatternX, int nPatternY);
 	void UpdateTex(const float fTexU, const float fSubU, const float fAddU, const float fTexV, const float fSubV, const float fAddV);
 	bool RevisionPos(const D3DXVECTOR3 pos, float fMalti, bool bWidth = false);
 	void DrawEffect(D3DXCOLOR col);
