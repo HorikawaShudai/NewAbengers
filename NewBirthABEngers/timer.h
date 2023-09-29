@@ -29,6 +29,7 @@
 //===============================================
 
 class CNumber;
+class CObject2D;
 
 //-======================================
 //-	クラス定義
@@ -37,6 +38,14 @@ class CNumber;
 class CTimer
 {
 public:
+
+	// テクスチャの種類
+	enum TEX
+	{
+		TEX_COMMA = 0,	// コンマ
+		TEX_METRE,		// メートル
+		TEX_MAX
+	};
 
 	CTimer();
 	~CTimer();
@@ -56,6 +65,13 @@ private:
 	void NumberTex(void);
 
 	void SetNumber(void);
+
+	static CObject2D *m_apObject2D[TEX_MAX];		// オブジェクト2Dクラスのポインタ
+	static int m_aIdxTexture[TEX_MAX];				// 使用するテクスチャの番号
+	static const char *m_apTextureData[TEX_MAX];	// テクスチャファイル名
+
+	D3DXVECTOR3 m_aPos2d[TEX_MAX];					// 位置
+	D3DXVECTOR3 m_aSize2d[TEX_MAX];					// サイズ
 
 	D3DXVECTOR3 m_pos;				// 位置
 	D3DXVECTOR3 m_size;				// 大きさ
