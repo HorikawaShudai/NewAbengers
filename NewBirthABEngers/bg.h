@@ -45,11 +45,12 @@ public:		// 誰でもアクセス可能 [アクセス指定子]
 
 	void SetData(D3DXVECTOR3 pos, D3DXVECTOR3 size, D3DXCOLOR color, D3DXVECTOR2 texMove);
 
+private:	// 自分のみアクセス可能 [アクセス指定子]
+
 	void SetVtx(void);
 
 	void DestTexPos(void);
 
-private:	// 自分のみアクセス可能 [アクセス指定子]
 	static const char *m_apTextureData[TEX_MAX];	// テクスチャファイル名
 	static int m_aIdxTexture[TEX_MAX];				// 使用するテクスチャの番号
 

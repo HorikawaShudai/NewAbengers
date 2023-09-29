@@ -16,16 +16,18 @@
 #include "ball.h"
 #include "bg.h"
 #include "ground.h"
+#include "timer.h"
 
 //===============================================
 // 静的メンバ変数
 //===============================================
-CObject3D *CGame::m_pObject3D = NULL;					// オブジェクト3Dクラスのポインタ
-CPause *CGame::m_pPause = NULL;							// ポーズクラスのポインタ
-CPlayer *CGame::m_pPlayer = NULL;						// プレイヤークラスのポインタ
-CBall *CGame::m_pBall = NULL;							// ボールクラスのポインタ
-CBg *CGame::m_pBg = NULL;								// 背景のポインタ
-CGround *CGame::m_pGround = NULL;						// 地面のポインタ
+CObject3D *CGame::m_pObject3D = NULL;		// オブジェクト3Dクラスのポインタ
+CPause *CGame::m_pPause = NULL;				// ポーズクラスのポインタ
+CPlayer *CGame::m_pPlayer = NULL;			// プレイヤークラスのポインタ
+CBall *CGame::m_pBall = NULL;				// ボールクラスのポインタ
+CBg *CGame::m_pBg = NULL;					// 背景のポインタ
+CGround *CGame::m_pGround = NULL;			// 地面のポインタ
+CTimer *CGame::m_pTimer = NULL;				// 時間のポインタ
 
 bool CGame::m_bPause = false;				// ポーズ状態
 bool CGame::m_bStateReady = false;			// GAMSESTATE_READYかどうか
@@ -88,6 +90,16 @@ HRESULT CGame::Init(HWND hWnd)
 		D3DXVECTOR3(SCREEN_WIDTH * 0.5f, SCREEN_HEIGHT * 0.1f, 0.0f),
 		D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f),
 		D3DXVECTOR2(0.001f, 0.0f));
+
+	// 時間の生成
+	m_pTimer = m_pTimer->Create();
+
+	// 時間の設定処理
+	m_pTimer->SetData(
+		D3DXVECTOR3(SCREEN_WIDTH * 0.5f, SCREEN_HEIGHT * 0.1f, 0.0f),
+		D3DXVECTOR3(50.0f, 50.0f, 0.0f),
+		D3DXVECTOR3(100.0f, 0.0f, 0.0f),
+		D3DXVECTOR3(100.0f, 0.0f, 0.0f));
 
 	// サウンドの再生
 	CManager::GetSound()->Play(CSound::LABEL_BGM_GAME);
