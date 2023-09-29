@@ -8,7 +8,6 @@
 #include "renderer.h"
 #include "fade.h"
 #include "manager.h"
-#include "camera.h"
 #include "input.h"
 #include "sound.h"
 
@@ -49,9 +48,6 @@ CTutorial::~CTutorial()
 //===============================================
 HRESULT CTutorial::Init(HWND hWnd)
 {
-	// カメラの初期化処理
-	CManager::GetCamera()->Init();
-
 	// サウンドの再生
 	CManager::GetSound()->Play(CSound::LABEL_BGM_TUTORIAL);
 
