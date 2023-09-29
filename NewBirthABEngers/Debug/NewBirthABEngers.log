@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿  precompile.cpp
   xfile.cpp
   tutorial.cpp
@@ -33,3 +34,10 @@
   LINK : 前回のインクリメンタル リンクで C:\Users\student\Documents\作品\HGS_NEW_AVENGERS\NewAbengers\NewBirthABEngers\Debug\NewBirthABEngers.exe が見つからなかったか、ビルドされませんでした。フル リンクを行います。
   NewBirthABEngers.vcxproj -> C:\Users\student\Documents\作品\HGS_NEW_AVENGERS\NewAbengers\NewBirthABEngers\Debug\NewBirthABEngers.exe
   NewBirthABEngers.vcxproj -> C:\Users\student\Documents\作品\HGS_NEW_AVENGERS\NewAbengers\NewBirthABEngers\Debug\NewBirthABEngers.pdb (Full PDB)
+=======
+﻿  timer.cpp
+  game.cpp
+  コードを生成中...
+  NewBirthABEngers.vcxproj -> C:\Users\student\Desktop\NewBirthABEngers\NewAbengers\NewBirthABEngers\Debug\NewBirthABEngers.exe
+  NewBirthABEngers.vcxproj -> C:\Users\student\Desktop\NewBirthABEngers\NewAbengers\NewBirthABEngers\Debug\NewBirthABEngers.pdb (Full PDB)
+>>>>>>> 120950a7d2289f53ccaf41c8cb766f8bb0382392

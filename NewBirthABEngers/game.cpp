@@ -156,6 +156,11 @@ void CGame::Update(void)
 	}
 //#endif
 
+	if (m_pBall->GetDeath() == true)
+	{
+		CRenderer::GetFade()->Set(CScene::MODE_RESULT);		// リザルト画面へ移動
+	}
+
 	srand(timeGetTime());	// randの値を初期化
 	int nTypeRand = 0;		// randの値
 
