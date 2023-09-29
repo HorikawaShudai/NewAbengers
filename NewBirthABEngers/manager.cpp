@@ -19,6 +19,8 @@
 #include "title.h"
 #include "result.h"
 #include "tutorial.h"
+#include "timer.h"
+#include "ranking.h"
 
 //===============================================
 // 静的メンバ変数
@@ -412,7 +414,7 @@ void CManager::SetFPS(int nCountFPS)
 //===============================================
 void CManager::SetMode(CScene::MODE mode)
 {
-	//int nScore;
+	int nScore;
 	CScene::MODE modeOld = m_mode;
 	m_mode = mode;
 
@@ -425,10 +427,10 @@ void CManager::SetMode(CScene::MODE mode)
 	// シーンを代入
 	CScene *pScenePrev = m_pScene;
 
-	//if (mode == CScene::MODE_RESULT && modeOld != CScene::MODE_TITLE)
-	//{// 次のモードがリザルト
-	//	nScore = CGame::GetScore()->Get();
-	//}
+	if (mode == CScene::MODE_RESULT && modeOld != CScene::MODE_TITLE)
+	{// 次のモードがリザルト
+		nScore = CGame::GetTimer()->Get();
+	}
 
 	// 現在のモードの破棄
 	if (pScenePrev != NULL)
@@ -439,11 +441,11 @@ void CManager::SetMode(CScene::MODE mode)
 	// 新しいモードの生成
 	m_pScene = CScene::Create(m_hWnd, mode);
 
-	//if (mode == CScene::MODE_RESULT && modeOld != CScene::MODE_TITLE)
-	//{// 次のモードがリザルト
-	//	// ランキングの設定
-	//	CResult::GetRanking()->Add(nScore);
-	//}
+	if (mode == CScene::MODE_RESULT && modeOld != CScene::MODE_TITLE)
+	{// 次のモードがリザルト
+		// ランキングの設定
+		CResult::GetRanking()->Add(nScore);
+	}
 
 	// メモリの開放
 	delete pScenePrev;

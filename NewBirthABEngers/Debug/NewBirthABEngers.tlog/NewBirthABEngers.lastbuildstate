@@ -1,2 +1,6 @@
 #TargetFrameworkVersion=v4.0:PlatformToolSet=v140:EnableManagedIncrementalBuild=false:VCToolArchitecture=Native32Bit:WindowsTargetPlatformVersion=8.1
+<<<<<<< HEAD
+Debug|Win32|C:\Users\student\Desktop\NewBirthABEngers\NewAbengers\NewBirthABEngers\|
+=======
 Debug|Win32|C:\Users\student\Documents\作品\HGS_NEW_AVENGERS\NewAbengers\NewBirthABEngers\|
+>>>>>>> 3366202013682740a78c7d419ea262b24baff7eb

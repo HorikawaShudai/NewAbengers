@@ -58,6 +58,7 @@ public:
 	static CTimer *Create(void);
 
 	void SetData(D3DXVECTOR3 pos, D3DXVECTOR3 size, D3DXVECTOR3 intervalValue, D3DXVECTOR3 intervalDigits);
+	int Get(void);
 
 private:
 

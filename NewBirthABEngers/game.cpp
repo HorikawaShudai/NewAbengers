@@ -18,6 +18,7 @@
 #include "ground.h"
 #include "timer.h"
 #include "block.h"
+#include "gage.h"
 
 //===============================================
 // 静的メンバ変数
@@ -30,6 +31,7 @@ CBg *CGame::m_pBg = NULL;					// 背景のポインタ
 CGround *CGame::m_pGround = NULL;			// 地面のポインタ
 CTimer *CGame::m_pTimer = NULL;				// 時間のポインタ
 CBlock *CGame::m_pBlock = NULL;				// ブロックのポインタ
+CUiGage *CGame::m_pGage = NULL;				// ゲージのポインタ
 
 bool CGame::m_bPause = false;				// ポーズ状態
 bool CGame::m_bStateReady = false;			// GAMSESTATE_READYかどうか
@@ -66,6 +68,9 @@ HRESULT CGame::Init(HWND hWnd)
 
 	// ボールの生成
 	m_pBall = CBall::Create();
+
+	// ゲージの生成
+	m_pGage = CUiGage::Create();
 
 	// ポーズの生成
 	m_pPause = CPause::Create(6);
@@ -119,6 +124,10 @@ void CGame::Uninit(void)
 	m_pPause->Uninit();
 	delete m_pPause;
 	m_pPause = NULL;
+
+	// ゴミゲージの終了処理
+	delete m_pGage;
+	m_pGage = NULL;
 
 	if (m_pTimer != NULL)
 	{
@@ -178,7 +187,7 @@ void CGame::Update(void)
 		if (nTypeRand == 1)
 		{
 			// ブロックの生成
-			m_pBlock = CBlock::Create();
+			m_pBlock = CBlock::Create(4);
 		}
 	}
 
@@ -186,7 +195,8 @@ void CGame::Update(void)
 	{// 待機状態じゃない
 		if (m_bPause == false)
 		{// ポーズ状態じゃない
-
+		 // ゴミゲージの更新処理
+			m_pGage->Update();
 		}
 	}
 	else if (m_bStateReady == true)
@@ -249,7 +259,8 @@ void CGame::Update(void)
 //===============================================
 void CGame::Draw(void)
 {
-	
+	// ゴミゲージの描画処理
+	m_pGage->Draw();
 }
 
 //===============================================
