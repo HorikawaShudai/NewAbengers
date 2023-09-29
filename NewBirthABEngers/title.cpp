@@ -22,7 +22,7 @@
 // Ã“Iƒƒ“ƒo•Ï”
 //===============================================
 
-CBg *CTitle::m_pBg = NULL;
+CBg *CTitle::m_pBg = NULL;			// ”wŒi‚Ìƒ|ƒCƒ“ƒ^
 
 //===============================================
 // ƒRƒ“ƒXƒgƒ‰ƒNƒ^
@@ -48,7 +48,7 @@ CTitle::~CTitle()
 HRESULT CTitle::Init(HWND hWnd)
 {
 	// ”wŒi‚Ì¶¬
-	m_pBg = CBg::Create(CBg::TEX_TITLE,6);
+	m_pBg = CBg::Create(CBg::TEX_TITLE,1);
 
 	// ”wŒiƒXƒNƒ[ƒ‹
 	m_pBg->SetData(
