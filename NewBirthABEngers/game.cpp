@@ -89,8 +89,8 @@ HRESULT CGame::Init(HWND hWnd)
 
 	// 背景スクロール
 	m_pGround->SetData(
-		D3DXVECTOR3(SCREEN_WIDTH * 0.5f, SCREEN_HEIGHT * 0.9f, 0.0f),
-		D3DXVECTOR3(SCREEN_WIDTH * 0.5f, SCREEN_HEIGHT * 0.1f, 0.0f),
+		D3DXVECTOR3(SCREEN_WIDTH * 0.5f, SCREEN_HEIGHT * 0.975f, 0.0f),
+		D3DXVECTOR3(SCREEN_WIDTH * 0.5f, SCREEN_HEIGHT * 0.025f, 0.0f),
 		D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f),
 		D3DXVECTOR2(0.001f, 0.0f));
 
@@ -120,6 +120,13 @@ void CGame::Uninit(void)
 	delete m_pPause;
 	m_pPause = NULL;
 
+	if (m_pTimer != NULL)
+	{
+		m_pTimer->Uninit();
+		delete m_pTimer;
+		m_pTimer = NULL;
+		
+	}
 	// 全てのオブジェクトの破棄
 	CObject::ReleaseAll();
 }
@@ -202,6 +209,12 @@ void CGame::Update(void)
 	{
 	case STATE_NORMAL:  // 通常状態
 		m_nCounterState--;
+
+		if (m_pTimer != NULL)
+		{
+			m_pTimer->Update();
+		}
+
 		break;
 
 	case STATE_READY:	// 開始待機状態
@@ -228,11 +241,6 @@ void CGame::Update(void)
 			}
 		}
 		break;
-	}
-
-	if (m_pTimer != NULL)
-	{
-		m_pTimer->Update();
 	}
 }
 
