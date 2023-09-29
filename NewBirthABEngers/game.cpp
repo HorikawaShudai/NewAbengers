@@ -12,13 +12,16 @@
 #include "renderer.h"
 #include "fade.h"
 #include "sound.h"
-#include "camera.h"
+#include "player.h"
+#include "ball.h"
 
 //===============================================
 // 静的メンバ変数
 //===============================================
 CObject3D *CGame::m_pObject3D = NULL;					// オブジェクト3Dクラスのポインタ
 CPause *CGame::m_pPause = NULL;							// ポーズクラスのポインタ
+CPlayer *CGame::m_pPlayer = NULL;						// プレイヤークラスのポインタ
+CBall *CGame::m_pBall = NULL;							// ボールクラスのポインタ
 
 bool CGame::m_bPause = false;				// ポーズ状態
 bool CGame::m_bStateReady = false;			// GAMSESTATE_READYかどうか
@@ -49,8 +52,11 @@ HRESULT CGame::Init(HWND hWnd)
 	m_bPause = false;
 	m_bStateReady = true;		// 待機状態にする
 
-	// カメラの初期化処理
-	CManager::GetCamera()->Init();
+	// プレイヤーの生成
+	m_pPlayer = CPlayer::Create();
+
+	// ボールの生成
+	m_pBall = CBall::Create();
 
 	// ポーズの生成
 	m_pPause = CPause::Create(6);

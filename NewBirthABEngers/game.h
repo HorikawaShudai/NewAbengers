@@ -20,6 +20,8 @@
 class CObjectX;
 class CObject3D;
 class CPause;
+class CPlayer;
+class CBall;
 
 //===============================================
 // ゲーム画面クラス
@@ -47,6 +49,8 @@ public:		// 誰でもアクセス可能 [アクセス指定子]
 
 	static CObject3D *GetObject3D() { return m_pObject3D; }
 	static CPause *GetPause() { return m_pPause; }
+	static CPlayer *GetPlayer() { return m_pPlayer; }
+	static CBall *GetBall() { return m_pBall; }
 
 	static void SetEnablePause(const bool bPause);
 	static bool GetPauseState(void) { return m_bPause; }
@@ -57,6 +61,8 @@ public:		// 誰でもアクセス可能 [アクセス指定子]
 private:	// 自分のみアクセス可能 [アクセス指定子]
 	static CObject3D *m_pObject3D;					// オブジェクト3Dクラスのポインタ
 	static CPause *m_pPause;						// ポーズクラスのポインタ
+	static CPlayer *m_pPlayer;						// プレイヤークラスのポインタ
+	static CBall *m_pBall;							// ボールクラスのポインタ
 
 	static bool m_bStateReady;		// GAMSESTATE_READYかどうか
 	static bool m_bPause;			// 現在のポーズの状態

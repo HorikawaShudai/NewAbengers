@@ -9,7 +9,6 @@
 #include "input.h"
 #include "debugproc.h"
 #include "sound.h"
-#include "camera.h"
 #include "light.h"
 #include "object3D.h"
 #include "objectBillboard.h"
@@ -204,15 +203,6 @@ HRESULT CManager::Init(HINSTANCE hInstance, HWND hWnd, BOOL bWindow)
 		return -1;
 	}
 
-	// カメラの生成
-	m_pCamera = new CCamera;
-
-	// カメラの初期化処理
-	if (FAILED(m_pCamera->Init()))
-	{// 初期化処理が失敗した場合
-		return -1;
-	}
-
 	// ライトの生成
 	m_pLight = new CLight;
 
@@ -287,11 +277,6 @@ void CManager::Uninit(void)
 		delete m_pSound;
 		m_pSound = NULL;
 
-		// カメラの終了処理
-		m_pCamera->Uninit();
-		delete m_pCamera;
-		m_pCamera = NULL;
-
 		// ライトの終了処理
 		m_pLight->Uninit();
 		delete m_pLight;
@@ -348,13 +333,6 @@ void CManager::Update(void)
 
 		// レンダラーの更新処理
 		m_pRenderer->Update();
-
-		if (CManager::GetMode() == CScene::MODE_GAME && (CGame::GetPauseState() == false)
-			|| CManager::GetMode() == CScene::MODE_TUTORIAL || CManager::GetMode() == CScene::MODE_TITLE)
-		{// ポーズ状態
-			// カメラの更新処理
-			m_pCamera->Update();
-		}
 
 		// ライトの更新処理
 		m_pLight->Update();

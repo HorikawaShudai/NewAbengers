@@ -99,14 +99,7 @@ HRESULT CObject2D::Init(D3DXVECTOR3 pos)
 	m_pVtxBuff->Lock(0, 0, (void**)&pVtx, 0);
 
 	// 頂点座標の設定
-	if (GetType() == TYPE_PLAYER)
-	{// プレイヤーの場合
-		pVtx[0].pos = D3DXVECTOR3(m_pos.x - m_fSizeX, m_pos.y - m_fSizeY, 0.0f);
-		pVtx[1].pos = D3DXVECTOR3(m_pos.x + m_fSizeX, m_pos.y - m_fSizeY, 0.0f);
-		pVtx[2].pos = D3DXVECTOR3(m_pos.x - m_fSizeX, m_pos.y, 0.0f);
-		pVtx[3].pos = D3DXVECTOR3(m_pos.x + m_fSizeX, m_pos.y, 0.0f);
-	}
-	else if (GetType() == TYPE_BLOCK)
+	if (GetType() == TYPE_BLOCK)
 	{// ブロックの場合
 		pVtx[0].pos = D3DXVECTOR3(m_pos.x,			m_pos.y, 0.0f);
 		pVtx[1].pos = D3DXVECTOR3(m_pos.x + m_fSizeX, m_pos.y, 0.0f);

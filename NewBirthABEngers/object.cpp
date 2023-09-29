@@ -7,7 +7,6 @@
 #include "object.h"
 #include "renderer.h"
 #include "manager.h"
-#include "camera.h"
 #include "game.h"
 
 //=============================
@@ -249,12 +248,6 @@ void CObject::UpdateAll()
 void CObject::DrawAll()
 {
 	CCamera *m_pCamera = CManager::GetCamera();	// カメラへのポインタを取得
-
-	if (m_pCamera != NULL)
-	{// カメラが使用されている
-		// カメラの設定処理
-		m_pCamera->Set();
-	}
 
 	for (int nCntPriority = 0; nCntPriority < PRIORITY_MAX; nCntPriority++)
 	{

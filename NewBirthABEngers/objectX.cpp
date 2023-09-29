@@ -7,7 +7,6 @@
 #include "main.h"
 #include "objectX.h"
 #include "input.h"
-#include "camera.h"
 #include "manager.h"
 #include "renderer.h"
 #include "texture.h"
