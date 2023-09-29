@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-﻿  gage.cpp
-cl : コマンド ライン warning D9028: 簡易リビルド時のエラーです、通常のビルドに戻します
-LINK : fatal error LNK1104: ファイル 'C:\Users\student\Desktop\NewBirthABEngers\NewAbengers\NewBirthABEngers\Debug\NewBirthABEngers.exe' を開くことができません。
-=======
-﻿  NewBirthABEngers.vcxproj -> C:\Users\student\Desktop\02_2023_Hackathon_autumn\NewAbengers\NewBirthABEngers\Debug\NewBirthABEngers.exe
-  NewBirthABEngers.vcxproj -> C:\Users\student\Desktop\02_2023_Hackathon_autumn\NewAbengers\NewBirthABEngers\Debug\NewBirthABEngers.pdb (Full PDB)
->>>>>>> 2ac9c4d272ad2ccc69383438e26ad6a3014a3301
+﻿  bg.cpp
+  NewBirthABEngers.vcxproj -> C:\Users\student\Desktop\NewBirthABEngers\NewAbengers\NewBirthABEngers\Debug\NewBirthABEngers.exe
+  NewBirthABEngers.vcxproj -> C:\Users\student\Desktop\NewBirthABEngers\NewAbengers\NewBirthABEngers\Debug\NewBirthABEngers.pdb (Full PDB)

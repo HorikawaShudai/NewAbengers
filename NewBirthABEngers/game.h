@@ -26,6 +26,7 @@ class CBg;
 class CGround;
 class CTimer;
 class CBlock;
+class CUiGage;
 
 //===============================================
 // ゲーム画面クラス
@@ -56,6 +57,8 @@ public:		// 誰でもアクセス可能 [アクセス指定子]
 	static CPlayer *GetPlayer() { return m_pPlayer; }
 	static CBall *GetBall() { return m_pBall; }
 	static CBlock *GetBlock() { return m_pBlock; }
+	static CUiGage *GetGage() { return m_pGage; }
+	static CTimer *GetTimer() { return m_pTimer; }
 
 	static void SetEnablePause(const bool bPause);
 	static bool GetPauseState(void) { return m_bPause; }
@@ -72,6 +75,7 @@ private:	// 自分のみアクセス可能 [アクセス指定子]
 	static CGround *m_pGround;						// 地面
 	static CTimer *m_pTimer;						// 時間
 	static CBlock *m_pBlock;						// 障害物
+	static CUiGage *m_pGage;							// ゲージ
 
 	static bool m_bStateReady;		// GAMSESTATE_READYかどうか
 	static bool m_bPause;			// 現在のポーズの状態

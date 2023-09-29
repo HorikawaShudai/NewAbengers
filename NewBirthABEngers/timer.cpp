@@ -323,3 +323,18 @@ void CTimer::SetNumber(void)
 		m_apObject2D[TEX_METRE]->Init(m_aPos2d[TEX_METRE]);
 	}
 }
+
+//-------------------------------------
+//- タイマーの取得
+//-------------------------------------
+int CTimer::Get(void)
+{
+	int nScore = 0;
+
+	m_nSecond = (m_nCntTime / 60);
+	m_nCommaSecond = (int)((m_nCntTime % 60) * 1.67f);
+
+	nScore = m_nSecond * 100 + m_nCommaSecond;
+
+	return nScore;
+}

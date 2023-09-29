@@ -10,6 +10,7 @@
 #include "fade.h"
 #include "manager.h"
 #include "bg.h"
+#include "ranking.h"
 
 //===============================================
 // マクロ定義
@@ -56,6 +57,9 @@ HRESULT CResult::Init(HWND hWnd)
 		D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f),
 		D3DXVECTOR2(0.0f, 0.0f));
 
+	// ランキングの生成
+	m_pRanking = CRanking::Create(6);
+
 	return S_OK;
 }
 
@@ -64,6 +68,14 @@ HRESULT CResult::Init(HWND hWnd)
 //===============================================
 void CResult::Uninit(void)
 {
+	if (m_pRanking != NULL)
+	{
+		// ランキングの終了処理
+		m_pRanking->Uninit();
+		delete m_pRanking;
+		m_pRanking = NULL;
+	}
+
 	// 全てのオブジェクトの破棄
 	CObject::ReleaseAll();
 }
@@ -86,6 +98,12 @@ void CResult::Update(void)
 			m_bFade = true;
 		}
 	}
+
+	if (m_pRanking != NULL)
+	{
+		// ランキングの更新処理
+		m_pRanking->Update();
+	}	
 }
 
 //===============================================
@@ -93,5 +111,9 @@ void CResult::Update(void)
 //===============================================
 void CResult::Draw(void)
 {
-
+	if (m_pRanking != NULL)
+	{
+		// ランキングの描画処理
+		m_pRanking->Draw();
+	}
 }
