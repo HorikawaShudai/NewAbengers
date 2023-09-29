@@ -21,6 +21,9 @@ const CSound::INFO CSound::m_aInfo[LABEL_MAX] =
 	{ "data/SE/pause_cursor.wav", 0 },			// ポーズのカーソル移動
 	{ "data/SE/pause_enter.wav", 0 },			// ポーズ決定
 	{ "data/SE/title_enter.wav", 0 },			// タイトル決定
+	{ "data/SE/kick_string.wav", 0 },			// 強くける
+	{ "data/SE/kick_weak.wav", 0 },				// 弱くける
+	{ "data/SE/ball_stab.wav", 0 },				// 刺さる音
 };
 
 //=============================================================================

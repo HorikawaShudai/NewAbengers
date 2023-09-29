@@ -10,6 +10,7 @@
 #include "input.h"
 #include "texture.h"
 #include "debugproc.h"
+#include "sound.h"
 
 //===============================================
 // Ã“Iƒƒ“ƒo•Ï”
@@ -117,10 +118,22 @@ void CBall::Update(void)
 		{
 			m_move.y = m_fPower;
 			m_bLifting = true;
+
+			if (m_fPower == MAX_POWER)
+			{//‹­‚­‚¯‚é‰¹
+				CManager::GetSound()->Play(CSound::LABEL_SE_KICK_STRONG);
+			}
+			else
+			{//Žã‚­‚¯‚é‰¹
+				CManager::GetSound()->Play(CSound::LABEL_SE_KICK_WEAK);
+			}
 		}
 	}
 	else if (CollisionObj(TYPE_BLOCK) == true || m_pos.y >= 600.0f)
 	{// áŠQ•¨‚ÉÚG
+		//Žh‚³‚Á‚½‰¹
+		CManager::GetSound()->Play(CSound::LABEL_SE_BALL_STAB);
+
 		m_bDeath = true;	// Ž€–Sƒtƒ‰ƒO
 	}
 

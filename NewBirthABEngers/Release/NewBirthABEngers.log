@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿  bg.cpp
   gage.cpp
   game.cpp
@@ -17,3 +18,7 @@
   コード生成が終了しました。
   NewBirthABEngers.vcxproj -> C:\Users\student\Desktop\NewBirthABEngers\NewAbengers\NewBirthABEngers\NewBirthABEngers.exe
   NewBirthABEngers.vcxproj -> C:\Users\student\Desktop\NewBirthABEngers\NewAbengers\NewBirthABEngers\NewBirthABEngers.pdb (Full PDB)
+=======
+﻿  NewBirthABEngers.vcxproj -> C:\Users\student\Documents\作品\HGS_NEW_AVENGERS\NewAbengers\NewBirthABEngers\NewBirthABEngers.exe
+  NewBirthABEngers.vcxproj -> C:\Users\student\Documents\作品\HGS_NEW_AVENGERS\NewAbengers\NewBirthABEngers\NewBirthABEngers.pdb (Full PDB)
+>>>>>>> 3366202013682740a78c7d419ea262b24baff7eb

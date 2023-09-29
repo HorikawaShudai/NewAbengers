@@ -30,6 +30,9 @@ public:		// 誰でもアクセス可能 [アクセス指定子]
 		LABEL_SE_PAUSE_CURSOR,	// ポーズのカーソル移動
 		LABEL_SE_PAUSE_ENTER,	// ポーズ決定
 		LABEL_SE_TITLE_ENTER,	// タイトル決定
+		LABEL_SE_KICK_STRONG,	// 強くける
+		LABEL_SE_KICK_WEAK,		// 弱くける
+		LABEL_SE_BALL_STAB,		// 弱くける
 		LABEL_MAX,
 	} LABEL;
 
