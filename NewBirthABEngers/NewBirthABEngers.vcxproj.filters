@@ -93,10 +93,14 @@
     <ClCompile Include="ground.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
+<<<<<<< HEAD
     <ClCompile Include="number.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="timer.cpp">
+=======
+    <ClCompile Include="block.cpp">
+>>>>>>> 42d61d54832d79469dc4e19c1bab4e535762d08d
       <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>
@@ -179,10 +183,14 @@
     <ClInclude Include="ground.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
+<<<<<<< HEAD
     <ClInclude Include="number.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="timer.h">
+=======
+    <ClInclude Include="block.h">
+>>>>>>> 42d61d54832d79469dc4e19c1bab4e535762d08d
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
   </ItemGroup>
