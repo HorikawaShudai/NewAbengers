@@ -159,6 +159,7 @@
     <ClCompile Include="block.cpp" />
     <ClCompile Include="debugproc.cpp" />
     <ClCompile Include="fade.cpp" />
+    <ClCompile Include="gage.cpp" />
     <ClCompile Include="game.cpp" />
     <ClCompile Include="ground.cpp" />
     <ClCompile Include="input.cpp" />
@@ -193,6 +194,7 @@
     <ClInclude Include="block.h" />
     <ClInclude Include="debugproc.h" />
     <ClInclude Include="fade.h" />
+    <ClInclude Include="gage.h" />
     <ClInclude Include="game.h" />
     <ClInclude Include="ground.h" />
     <ClInclude Include="input.h" />

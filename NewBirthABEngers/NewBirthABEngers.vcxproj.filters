@@ -12,6 +12,10 @@
     <ClCompile Include="light.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="manager.cpp" />
+<<<<<<< HEAD
+    <ClCompile Include="number.cpp" />
+=======
+>>>>>>> 2ac9c4d272ad2ccc69383438e26ad6a3014a3301
     <ClCompile Include="object.cpp" />
     <ClCompile Include="object2D.cpp" />
     <ClCompile Include="object3D.cpp" />
@@ -29,7 +33,11 @@
     <ClCompile Include="title.cpp" />
     <ClCompile Include="tutorial.cpp" />
     <ClCompile Include="xfile.cpp" />
+<<<<<<< HEAD
+    <ClCompile Include="gage.cpp" />
+=======
     <ClCompile Include="number_sakai.cpp" />
+>>>>>>> 2ac9c4d272ad2ccc69383438e26ad6a3014a3301
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ball.h" />
@@ -43,6 +51,10 @@
     <ClInclude Include="light.h" />
     <ClInclude Include="main.h" />
     <ClInclude Include="manager.h" />
+<<<<<<< HEAD
+    <ClInclude Include="number.h" />
+=======
+>>>>>>> 2ac9c4d272ad2ccc69383438e26ad6a3014a3301
     <ClInclude Include="object.h" />
     <ClInclude Include="object2D.h" />
     <ClInclude Include="object3D.h" />
@@ -60,6 +72,10 @@
     <ClInclude Include="title.h" />
     <ClInclude Include="tutorial.h" />
     <ClInclude Include="xfile.h" />
+<<<<<<< HEAD
+    <ClInclude Include="gage.h" />
+=======
     <ClInclude Include="number_sakai.h" />
+>>>>>>> 2ac9c4d272ad2ccc69383438e26ad6a3014a3301
   </ItemGroup>
 </Project>
