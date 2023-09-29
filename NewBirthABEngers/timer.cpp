@@ -210,7 +210,7 @@ void CTimer::NumberTex(void)
 	int nDigitsComma[COMMA_DIGITS];		// ƒRƒ“ƒ}•b”‚ÌŒ…‚ðŠi”[
 
 	m_nSecond = (m_nCntTime / 60);
-	m_nCommaSecond = (int)((m_nCntTime % 60) * 1.2f);
+	m_nCommaSecond = (int)((m_nCntTime % 60) * 1.67f);
 
 	// Œ…‚²‚Æ‚Ì”’l‚ð‘ã“ü
 	nDigitsScond[0] = ((m_nSecond % 1000) / 100);
@@ -246,11 +246,11 @@ void CTimer::SetNumber(void)
 			// ”Žš‚ÌˆÊ’uî•ñ‚ð‘ã“ü
 			m_apSecondNumber[nCount]->SetData(
 				D3DXVECTOR3(
-				m_pos.x + (m_intervalValue.x * nCount),
-				m_pos.y + (m_intervalValue.y * nCount),
-				m_pos.z + (m_intervalValue.z * nCount)),
+					m_pos.x + (m_intervalValue.x * nCount),
+					m_pos.y + (m_intervalValue.y * nCount),
+					m_pos.z + (m_intervalValue.z * nCount)),
 				m_size,
-				D3DXCOLOR(1.0f,1.0f,1.0f,1.0f));
+				D3DXCOLOR(1.0f, 0.0f, 0.0f, 1.0f));
 		}
 	}
 
@@ -260,13 +260,13 @@ void CTimer::SetNumber(void)
 		if (m_apCommaNumber[nCount] != NULL)
 		{
 			// ”Žš‚ÌˆÊ’uî•ñ‚ð‘ã“ü
-			m_apSecondNumber[nCount]->SetData(
+			m_apCommaNumber[nCount]->SetData(
 				D3DXVECTOR3(
-					m_pos.x + (m_intervalValue.x * nCount) + m_intervalDigits.x,
+					m_pos.x + (m_intervalValue.x * nCount) + m_intervalDigits.x + 300.0f,
 					m_pos.y + (m_intervalValue.y * nCount) + m_intervalDigits.y,
 					m_pos.z + (m_intervalValue.z * nCount) + m_intervalDigits.z),
 				m_size,
-				D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f)
+				D3DXCOLOR(0.0f, 1.0f, 0.0f, 1.0f)
 			);
 		}
 	}

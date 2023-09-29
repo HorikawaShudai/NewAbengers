@@ -205,6 +205,11 @@ void CGame::Update(void)
 		}
 		break;
 	}
+
+	if (m_pTimer != NULL)
+	{
+		m_pTimer->Update();
+	}
 }
 
 //===============================================

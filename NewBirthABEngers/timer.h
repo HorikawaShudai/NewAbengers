@@ -69,6 +69,7 @@ private:
 	
 	CNumber *m_apSecondNumber[SECOND_DIGITS];	// 秒の数字のポインタ
 	CNumber *m_apCommaNumber[COMMA_DIGITS];		// コンマ秒の数字のポインタ
+
 };
 
 #endif	// 二重インクルード防止の終了
