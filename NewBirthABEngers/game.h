@@ -23,6 +23,7 @@ class CPause;
 class CPlayer;
 class CBall;
 class CBg;
+class CGround;
 
 //===============================================
 // ゲーム画面クラス
@@ -65,6 +66,7 @@ private:	// 自分のみアクセス可能 [アクセス指定子]
 	static CPlayer *m_pPlayer;						// プレイヤークラスのポインタ
 	static CBall *m_pBall;							// ボールクラスのポインタ
 	static CBg *m_pBg;								// 背景
+	static CGround *m_pGround;						// 地面
 
 	static bool m_bStateReady;		// GAMSESTATE_READYかどうか
 	static bool m_bPause;			// 現在のポーズの状態

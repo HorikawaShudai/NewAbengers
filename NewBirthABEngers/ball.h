@@ -34,9 +34,11 @@ public:		//誰でもアクセス可能[アクセス指定子]
 	void Uninit(void);
 	void Update(void);
 	void Draw(void);
+	bool CollisionObj(const CObject::TYPE type);
 
 private:	//自分のみアクセス可能[アクセス指定子]
 	static int m_nIdxTexture;		// 使用するテクスチャの番号
+	bool m_bLifting;				// リフティングができるか
 };
 
 #endif

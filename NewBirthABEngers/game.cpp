@@ -15,6 +15,7 @@
 #include "player.h"
 #include "ball.h"
 #include "bg.h"
+#include "ground.h"
 
 //===============================================
 // 静的メンバ変数
@@ -24,6 +25,7 @@ CPause *CGame::m_pPause = NULL;							// ポーズクラスのポインタ
 CPlayer *CGame::m_pPlayer = NULL;						// プレイヤークラスのポインタ
 CBall *CGame::m_pBall = NULL;							// ボールクラスのポインタ
 CBg *CGame::m_pBg = NULL;								// 背景のポインタ
+CGround *CGame::m_pGround = NULL;						// 地面のポインタ
 
 bool CGame::m_bPause = false;				// ポーズ状態
 bool CGame::m_bStateReady = false;			// GAMSESTATE_READYかどうか
@@ -75,7 +77,17 @@ HRESULT CGame::Init(HWND hWnd)
 		D3DXVECTOR3(SCREEN_WIDTH * 0.5f, SCREEN_HEIGHT * 0.5f, 0.0f),
 		D3DXVECTOR3(SCREEN_WIDTH * 0.5f, SCREEN_HEIGHT * 0.5f, 0.0f),
 		D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f),
-		D3DXVECTOR2(0.0001f, 0.0f));
+		D3DXVECTOR2(0.001f, 0.0f));
+
+	// 背景の生成
+	m_pGround = CGround::Create(CGround::TEX_GROUND_000, 2);
+
+	// 背景スクロール
+	m_pGround->SetData(
+		D3DXVECTOR3(SCREEN_WIDTH * 0.5f, SCREEN_HEIGHT * 0.9f, 0.0f),
+		D3DXVECTOR3(SCREEN_WIDTH * 0.5f, SCREEN_HEIGHT * 0.1f, 0.0f),
+		D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f),
+		D3DXVECTOR2(0.001f, 0.0f));
 
 	// サウンドの再生
 	CManager::GetSound()->Play(CSound::LABEL_BGM_GAME);
