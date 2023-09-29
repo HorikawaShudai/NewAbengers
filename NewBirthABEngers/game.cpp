@@ -164,13 +164,13 @@ void CGame::Update(void)
 		}
 	}
 
-//#if _DEBUG
+#if _DEBUG
 	if (CManager::GetKeyboardInput()->GetTrigger(DIK_BACKSPACE) == true
 		|| CManager::GetInputGamePad()->GetTrigger(CInputGamePad::BUTTON_BACK, 0) == true)
 	{// BackSpace
 		CRenderer::GetFade()->Set(CScene::MODE_RESULT);		// ƒŠƒUƒ‹ƒg‰æ–Ê‚ÖˆÚ“®
 	}
-//#endif
+#endif
 
 	if (m_pBall->GetDeath() == true)
 	{
