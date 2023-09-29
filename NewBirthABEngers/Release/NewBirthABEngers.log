@@ -1,14 +1,14 @@
 ﻿  bg.cpp
   game.cpp
+  ground.cpp
   manager.cpp
-  result.cpp
-  texture.cpp
-  title.cpp
-  tutorial.cpp
+  object.cpp
+  pause.cpp
+  renderer.cpp
   コード生成しています。
-  2 of 279 functions ( 0.7%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    4 functions had inline decision re-evaluated but remain unchanged
+  15 of 292 functions ( 5.1%) were compiled, the rest were copied from previous compilation.
+    13 functions were new in current compilation
+    32 functions had inline decision re-evaluated but remain unchanged
   コード生成が終了しました。
   NewBirthABEngers.vcxproj -> C:\Users\student\Desktop\02_2023_Hackathon_autumn\NewAbengers\NewBirthABEngers\NewBirthABEngers.exe
   NewBirthABEngers.vcxproj -> C:\Users\student\Desktop\02_2023_Hackathon_autumn\NewAbengers\NewBirthABEngers\NewBirthABEngers.pdb (Full PDB)

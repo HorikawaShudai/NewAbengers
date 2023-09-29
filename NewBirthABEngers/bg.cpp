@@ -13,10 +13,6 @@
 //===============================================
 // マクロ定義
 //===============================================
-#define SIZE_X				(285.0f)		// 横サイズ
-#define SIZE_Y				(90.0f)			// 縦サイズ
-#define TIME_PROGRESS		(240)			// 進捗移行時間
-#define TIME_PROGRESSTART	(1200)			// 進捗移行開始時間
 
 //===============================================
 // 静的メンバ変数
@@ -81,7 +77,7 @@ CBg *CBg::Create(int nTex, int nPriority)
 	pBg->SetType(TYPE_BULLET);
 
 	// サイズの設定
-	pBg->SetSize(SIZE_X, SIZE_Y);
+	pBg->SetSize(0.0f, 0.0f);
 
 	// 初期化処理
 	pBg->Init(D3DXVECTOR3(650.0f, 600.0f, 0.0f), nTex, nPriority);
