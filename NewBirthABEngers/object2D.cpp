@@ -289,18 +289,18 @@ void CObject2D::SetCol(const D3DXCOLOR col)
 //===============================================
 // アニメーションの更新処理
 //===============================================
-void CObject2D::UpdateAnim(int nPatternX, int nPatternY, int nSpeed)
+void CObject2D::UpdateAnim(int nPatternX, int nPatternY)
 {
 	VERTEX_2D *pVtx;	// 頂点情報へのポインタ
 
 	// 頂点バッファをロックし頂点情報へのポインタを取得
 	m_pVtxBuff->Lock(0, 0, (void**)&pVtx, 0);
 
-	////頂点座標の設定
-	//pVtx[0].tex = D3DXVECTOR2(0.0f + 1.0f / nPatternX * m_nPatternAnim, 0.0f);
-	//pVtx[1].tex = D3DXVECTOR2(0.2f + 1.0f / nPatternX * m_nPatternAnim, 0.0f);
-	//pVtx[2].tex = D3DXVECTOR2(0.0f + 1.0f / nPatternX * m_nPatternAnim, 0.5f);
-	//pVtx[3].tex = D3DXVECTOR2(0.2f + 1.0f / nPatternX * m_nPatternAnim, 0.5f);
+	//頂点座標の設定
+	pVtx[0].tex = D3DXVECTOR2(0.0f + 0.25f * nPatternX, 0.0f + 0.5f * nPatternY);
+	pVtx[1].tex = D3DXVECTOR2(0.25f + 0.25f * nPatternX, 0.0f + 0.5f * nPatternY);
+	pVtx[2].tex = D3DXVECTOR2(0.0f + 0.25f * nPatternX, 0.5f + 0.5f * nPatternY);
+	pVtx[3].tex = D3DXVECTOR2(0.25f + 0.25f * nPatternX, 0.5f + 0.5f * nPatternY);
 
 	// 頂点バッファをアンロックする
 	m_pVtxBuff->Unlock();
