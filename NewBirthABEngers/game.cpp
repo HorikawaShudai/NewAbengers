@@ -17,6 +17,7 @@
 #include "bg.h"
 #include "ground.h"
 #include "timer.h"
+#include "block.h"
 
 //===============================================
 // 静的メンバ変数
@@ -28,6 +29,7 @@ CBall *CGame::m_pBall = NULL;				// ボールクラスのポインタ
 CBg *CGame::m_pBg = NULL;					// 背景のポインタ
 CGround *CGame::m_pGround = NULL;			// 地面のポインタ
 CTimer *CGame::m_pTimer = NULL;				// 時間のポインタ
+CBlock *CGame::m_pBlock = NULL;				// ブロックのポインタ
 
 bool CGame::m_bPause = false;				// ポーズ状態
 bool CGame::m_bStateReady = false;			// GAMSESTATE_READYかどうか
@@ -40,6 +42,7 @@ CGame::CGame() : CScene()
 	// 値のクリア
 	m_state = STATE_NONE;
 	m_nCounterState = 0;
+	m_nTimeCounter = 0;
 }
 
 //===============================================
@@ -126,6 +129,8 @@ void CGame::Uninit(void)
 //===============================================
 void CGame::Update(void)
 {
+	m_nTimeCounter++;	// 時間をカウント
+
 	if (CManager::GetKeyboardInput()->GetTrigger(DIK_P) == true
 		|| CManager::GetInputGamePad()->GetTrigger(CInputGamePad::BUTTON_START, 0) == true)
 	{// ポーズ入力
@@ -150,6 +155,20 @@ void CGame::Update(void)
 		CRenderer::GetFade()->Set(CScene::MODE_RESULT);		// リザルト画面へ移動
 	}
 //#endif
+
+	srand(timeGetTime());	// randの値を初期化
+	int nTypeRand = 0;		// randの値
+
+	if ((m_nTimeCounter % 30) == 0)
+	{// 一定時間経過
+		nTypeRand = rand() % 8;		// randの値を取得
+
+		if (nTypeRand == 1)
+		{
+			// ブロックの生成
+			m_pBlock = CBlock::Create();
+		}
+	}
 
 	if (m_bStateReady == false)
 	{// 待機状態じゃない
