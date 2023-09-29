@@ -72,8 +72,8 @@ HRESULT CTutorial::Init(HWND hWnd)
 //===============================================
 void CTutorial::Uninit(void)
 {
-	//// 全てのオブジェクトの破棄
-	//CObject::ReleaseAll();
+	// 全てのオブジェクトの破棄
+	CObject::ReleaseAll();
 }
 
 //===============================================
