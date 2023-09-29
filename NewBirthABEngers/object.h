@@ -35,25 +35,19 @@ public:		// 誰でもアクセス可能 [アクセス指定子]
 	{
 		TYPE_NONE = 0,	// なし
 		TYPE_PLAYER,	// プレイヤー
-		TYPE_ENEMY,		// 敵
-		TYPE_BLOCK,		// ブロック
 		TYPE_BULLET,	// 弾
-		TYPE_EXPLOSION,	// 爆発
-		TYPE_ITEM,		// アイテム
+		TYPE_EXPLOSION,	//爆発
+		TYPE_BLOCK,		// ブロック
 		TYPE_BG,		// 背景
 		TYPE_EFFECT,	// エフェクト
 		TYPE_FIELD,		// 床
 		TYPE_WALL,		// 壁
 		TYPE_BILLBOARD,	// ビルボード
-		TYPE_TARGET,	// ターゲット
-		TYPE_ROCKON,	// ロックオン
 		TYPE_XFAIL,		// Xファイル
-		TYPE_GARBAGE,	// ごみ
-		TYPE_DUMPSTER,	// ゴミステーション
-		TYPE_SHADOW,	// 影
 		TYPE_SCENE,		// シーン
 		TYPE_PAUSE,		// ポーズ
 		TYPE_RANKIN,	// ランクイン
+		TYPE_BALL,		// ボール
 		TYPE_MAX
 	}TYPE;
 
