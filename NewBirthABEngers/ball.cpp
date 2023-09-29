@@ -9,6 +9,7 @@
 #include "renderer.h"
 #include "input.h"
 #include "texture.h"
+#include "debugproc.h"
 
 //===============================================
 // 静的メンバ変数
@@ -21,6 +22,7 @@ int CBall::m_nIdxTexture = NULL;		// 使用するテクスチャの番号
 CBall::CBall() : CObject2D(5)
 {
 	// 値をクリア
+	m_fPower = 0.0f;
 	m_bLifting = false;
 }
 
@@ -30,6 +32,7 @@ CBall::CBall() : CObject2D(5)
 CBall::CBall(int nPriority) : CObject2D(nPriority)
 {
 	// 値をクリア
+	m_fPower = 0.0f;
 	m_bLifting = false;
 }
 
@@ -94,13 +97,30 @@ void CBall::Uninit(void)
 //===============================================
 void CBall::Update(void)
 {
+	// 蹴る強さ変更
+	if (CManager::GetKeyboardInput()->GetPress(DIK_SPACE) == true)
+	{
+		m_fPower -= LIFTING_POWER;
+
+		if (m_fPower <= MAX_POWER)
+		{// 強さの上限を超えたら戻す
+			m_fPower = MAX_POWER;
+		}
+	}
+
 	if (CollisionObj(TYPE_PLAYER) == true)
 	{// オブジェクトの範囲内
 		// リフティング
-		if (CManager::GetKeyboardInput()->GetRelease(DIK_SPACE) == true)
+		if (CManager::GetKeyboardInput()->GetRelease(DIK_SPACE) == true && m_bLifting == false)
 		{
-			m_move.y = MOVE_LIFTING;
+			m_move.y = m_fPower;
+			m_bLifting = true;
 		}
+	}
+
+	if (CManager::GetKeyboardInput()->GetPress(DIK_SPACE) == false)
+	{
+		m_fPower = MOVE_LIFTING;
 	}
 
 	// 位置を更新
@@ -108,6 +128,10 @@ void CBall::Update(void)
 
 	// 重力処理
 	m_move.y += MOVE_GRAVITY;
+
+	// デバッグ表示
+	CManager::GetDebugProc()->Print(" 蹴る強さ：%f\n", m_fPower);
+
 }
 
 //===============================================
@@ -158,12 +182,13 @@ bool CBall::CollisionObj(const CObject::TYPE type)
 							if (posBall.x >= posObj.x - BALL_SIZEX - sizeObj.x
 								&& posBall.x <= posObj.x + BALL_SIZEX + sizeObj.x
 								&& posBall.y <= posObj.y + BALL_SIZEY + sizeObj.y
-								&& posBall.y >= posObj.y - BALL_SIZEY - sizeObj.y)
+								&& posBall.y >= posObj.y - BALL_SIZEY)
 							{//	現在の位置がオブジェクトの範囲内
 								return true;
 							}
 							else
 							{
+								m_bLifting = false;	// リフティングを可能にする
 								return false;
 							}
 						}
