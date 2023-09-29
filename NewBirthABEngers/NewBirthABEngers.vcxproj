@@ -156,6 +156,7 @@
   <ItemGroup>
     <ClCompile Include="ball.cpp" />
     <ClCompile Include="bg.cpp" />
+    <ClCompile Include="block.cpp" />
     <ClCompile Include="debugproc.cpp" />
     <ClCompile Include="fade.cpp" />
     <ClCompile Include="game.cpp" />
@@ -187,6 +188,7 @@
   <ItemGroup>
     <ClInclude Include="ball.h" />
     <ClInclude Include="bg.h" />
+    <ClInclude Include="block.h" />
     <ClInclude Include="debugproc.h" />
     <ClInclude Include="fade.h" />
     <ClInclude Include="game.h" />
