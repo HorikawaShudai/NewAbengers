@@ -1,5 +1,3 @@
-﻿  timer.cpp
-  game.cpp
-  コードを生成中...
-  NewBirthABEngers.vcxproj -> C:\Users\student\Desktop\NewBirthABEngers\NewAbengers\NewBirthABEngers\Debug\NewBirthABEngers.exe
-  NewBirthABEngers.vcxproj -> C:\Users\student\Desktop\NewBirthABEngers\NewAbengers\NewBirthABEngers\Debug\NewBirthABEngers.pdb (Full PDB)
+﻿  gage.cpp
+cl : コマンド ライン warning D9028: 簡易リビルド時のエラーです、通常のビルドに戻します
+LINK : fatal error LNK1104: ファイル 'C:\Users\student\Desktop\NewBirthABEngers\NewAbengers\NewBirthABEngers\Debug\NewBirthABEngers.exe' を開くことができません。
