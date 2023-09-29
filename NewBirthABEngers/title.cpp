@@ -10,7 +10,6 @@
 #include "fade.h"
 #include "sound.h"
 #include "manager.h"
-#include "camera.h"
 
 #include "bg.h"
 
@@ -48,9 +47,6 @@ CTitle::~CTitle()
 //===============================================
 HRESULT CTitle::Init(HWND hWnd)
 {
-	// ÉJÉÅÉâÇÃèâä˙âªèàóù
-	CManager::GetCamera()->Init();
-
 	// îwåiÇÃê∂ê¨
 	m_pBg = CBg::Create(CBg::TEX_TITLE,6);
 
