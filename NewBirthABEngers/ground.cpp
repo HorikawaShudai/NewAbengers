@@ -1,11 +1,11 @@
 //=========================================================
 //
-// 背景処理 [bg.cpp]
+// 地面処理 [ground.cpp]
 // Author = 酒井南勝
 //
 //=========================================================
 
-#include "bg.h"
+#include "ground.h"
 #include "manager.h"
 #include "renderer.h"
 #include "texture.h"
@@ -18,23 +18,20 @@
 // 静的メンバ変数
 //===============================================
 
-int CBg::m_aIdxTexture[TEX_MAX] = {};				// 使用するテクスチャの番号
+int CGround::m_aIdxTexture[TEX_MAX] = {};				// 使用するテクスチャの番号
 
 //===============================================
 // テクスチャファイル名
 //===============================================
-const char *CBg::m_apTextureData[TEX_MAX] =
+const char *CGround::m_apTextureData[TEX_MAX] =
 {
-	{ "data\\TEXTURE\\GameBg000.png" },		// ゲーム
-	{ "data\\TEXTURE\\TitleBg000.png" },	// タイトル
-	{ "data\\TEXTURE\\ResultBg000.png" },	// リザルト
-	{ "data\\TEXTURE\\TutorialBg000.png" },	// チュートリアル
+	{ "data\\TEXTURE\\Ground000.png" },		// 地面000
 };
 
 //===============================================
 // コンストラクタ
 //===============================================
-CBg::CBg() : CObject2D(5)
+CGround::CGround() : CObject2D(5)
 {
 	// 値のクリア
 	m_nTypeTex = 0;
@@ -46,7 +43,7 @@ CBg::CBg() : CObject2D(5)
 //===============================================
 // コンストラクタ（オーバーロード）
 //===============================================
-CBg::CBg(int nPriority) : CObject2D(nPriority)
+CGround::CGround(int nPriority) : CObject2D(nPriority)
 {
 	// 値のクリア
 	m_nTypeTex = 0;
@@ -58,7 +55,7 @@ CBg::CBg(int nPriority) : CObject2D(nPriority)
 //===============================================
 // デストラクタ
 //===============================================
-CBg::~CBg()
+CGround::~CGround()
 {
 
 }
@@ -66,32 +63,32 @@ CBg::~CBg()
 //===============================================
 // 生成処理
 //===============================================
-CBg *CBg::Create(int nTex, int nPriority)
+CGround *CGround::Create(int nTex, int nPriority)
 {
-	CBg *pBg;
+	CGround *pGround;
 
-	// 背景の生成
-	pBg = new CBg(nPriority);
+	// 地面の生成
+	pGround = new CGround(nPriority);
 
 	// 種類の設定
-	pBg->SetType(TYPE_BULLET);
+	pGround->SetType(TYPE_BULLET);
 
 	// サイズの設定
-	pBg->SetSize(0.0f, 0.0f);
+	pGround->SetSize(0.0f, 0.0f);
 
 	// 初期化処理
-	pBg->Init(D3DXVECTOR3(650.0f, 600.0f, 0.0f), nTex, nPriority);
+	pGround->Init(D3DXVECTOR3(650.0f, 600.0f, 0.0f), nTex, nPriority);
 
 	// 設定処理
-	pBg->Set(nTex);
+	pGround->Set(nTex);
 
-	return pBg;
+	return pGround;
 }
 
 //===============================================
 // 初期化処理
 //===============================================
-HRESULT CBg::Init(D3DXVECTOR3 pos, int nTex, int nPriority)
+HRESULT CGround::Init(D3DXVECTOR3 pos, int nTex, int nPriority)
 {
 	// オブジェクト2Dの初期化処理
 	CObject2D::Init(pos);
@@ -102,7 +99,7 @@ HRESULT CBg::Init(D3DXVECTOR3 pos, int nTex, int nPriority)
 //===============================================
 // 終了処理
 //===============================================
-void CBg::Uninit(void)
+void CGround::Uninit(void)
 {
 	// オブジェクト2Dの終了処理
 	CObject2D::Uninit();
@@ -111,7 +108,7 @@ void CBg::Uninit(void)
 //===============================================
 // 更新処理
 //===============================================
-void CBg::Update(void)
+void CGround::Update(void)
 {
 	// テクスチャの加算処理
 	m_texPos += m_texMove;
@@ -126,16 +123,16 @@ void CBg::Update(void)
 //===============================================
 // 描画処理
 //===============================================
-void CBg::Draw(void)
+void CGround::Draw(void)
 {
-	 // オブジェクト2Dの描画処理
+	// オブジェクト2Dの描画処理
 	CObject2D::Draw();
 }
 
 //===============================================
 // 設定処理
 //===============================================
-void CBg::Set(const int nType)
+void CGround::Set(const int nType)
 {
 	m_nTypeTex = nType;
 
@@ -149,7 +146,7 @@ void CBg::Set(const int nType)
 //===============================================
 // 値の設定処理
 //===============================================
-void CBg::SetData(D3DXVECTOR3 pos, D3DXVECTOR3 size, D3DXCOLOR color, D3DXVECTOR2 texMove)
+void CGround::SetData(D3DXVECTOR3 pos, D3DXVECTOR3 size, D3DXCOLOR color, D3DXVECTOR2 texMove)
 {
 	m_pos = pos;
 	m_size = size;
@@ -162,9 +159,9 @@ void CBg::SetData(D3DXVECTOR3 pos, D3DXVECTOR3 size, D3DXCOLOR color, D3DXVECTOR
 }
 
 //-------------------------------------
-//- 背景の頂点情報設定
+//- 地面の頂点情報設定
 //-------------------------------------
-void CBg::SetVtx(void)
+void CGround::SetVtx(void)
 {
 	// 頂点バッファの取得
 	LPDIRECT3DVERTEXBUFFER9 vtxBuff = GetVtxBuff();
@@ -227,9 +224,9 @@ void CBg::SetVtx(void)
 }
 
 //-------------------------------------
-//- 背景のテクスチャ座標の補正
+//- 地面のテクスチャ座標の補正
 //-------------------------------------
-void CBg::DestTexPos(void)
+void CGround::DestTexPos(void)
 {
 	// 横のテクスチャ位置の判定
 	if (m_texPos.x > 1.0f)

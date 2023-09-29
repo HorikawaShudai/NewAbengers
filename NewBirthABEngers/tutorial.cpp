@@ -10,6 +10,7 @@
 #include "manager.h"
 #include "input.h"
 #include "sound.h"
+#include "bg.h"
 
 //===============================================
 // マクロ定義
@@ -24,6 +25,8 @@
 //===============================================
 // 静的メンバ変数
 //===============================================
+
+CBg *CTutorial::m_pBg = NULL;		// 背景のポインタ
 
 //===============================================
 // コンストラクタ
@@ -48,6 +51,16 @@ CTutorial::~CTutorial()
 //===============================================
 HRESULT CTutorial::Init(HWND hWnd)
 {
+	// 背景の生成
+	m_pBg = CBg::Create(CBg::TEX_TUTORIAL, 1);
+
+	// 背景スクロール
+	m_pBg->SetData(
+		D3DXVECTOR3(SCREEN_WIDTH * 0.5f, SCREEN_HEIGHT * 0.5f, 0.0f),
+		D3DXVECTOR3(SCREEN_WIDTH * 0.5f, SCREEN_HEIGHT * 0.5f, 0.0f),
+		D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f),
+		D3DXVECTOR2(0.0f, 0.0f));
+
 	// サウンドの再生
 	CManager::GetSound()->Play(CSound::LABEL_BGM_TUTORIAL);
 

@@ -1,12 +1,12 @@
 
 //=========================================================
 //
-// 背景処理 [bg.h]
+// 背景処理 [ground.h]
 // Author = 酒井南勝
 //
 //=========================================================
-#ifndef _BG_H_     // このマクロ定義がされてなかったら
-#define _BG_H_     // 2重インクルード防止のマクロ定義する
+#ifndef _GROUND_H_     // このマクロ定義がされてなかったら
+#define _GROUND_H_     // 2重インクルード防止のマクロ定義する
 
 #include "object2D.h"
 
@@ -17,24 +17,21 @@
 //===============================================
 // 背景クラス
 //===============================================
-class CBg : public CObject2D
+class CGround : public CObject2D
 {
 public:		// 誰でもアクセス可能 [アクセス指定子]
-	CBg();					// デフォルトコンストラクタ
-	CBg(int nPriority = 5);	// オーバーロードされたコンストラクタ
-	~CBg();					// デストラクタ
+	CGround();					// デフォルトコンストラクタ
+	CGround(int nPriority = 5);	// オーバーロードされたコンストラクタ
+	~CGround();					// デストラクタ
 
 	// 背景のテクスチャ
 	enum TEX
 	{
-		TEX_GAME = 0,	// ゲーム
-		TEX_TITLE,		// タイトル
-		TEX_RESULT,		// リザルト
-		TEX_TUTORIAL,	// チュートリアル
+		TEX_GROUND_000 = 0,	// 地面000
 		TEX_MAX
 	};
 
-	static CBg *Create(int nTex, int nPriority = 3);
+	static CGround *Create(int nTex, int nPriority = 3);
 
 	HRESULT Init(D3DXVECTOR3 pos, int nTex, int nPriority);
 	void Uninit(void);
