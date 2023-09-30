@@ -97,7 +97,7 @@ void CBlock::Uninit(void)
 void CBlock::Update(void)
 {
 	// à íuÇçXêV
-	CObject2D::SetPos(D3DXVECTOR3(m_pos.x - 1.5f, m_pos.y, 0.0f));
+	CObject2D::SetPos(D3DXVECTOR3(m_pos.x - 5.0f, m_pos.y, 0.0f));
 
 	if (CObject2D::GetPos().x <= -BLOCK_SIZEX)
 	{
